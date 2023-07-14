@@ -1,15 +1,15 @@
 import Home from 'pages/index';
-import theme from 'components/theme';
 
 import { ThemeProvider } from 'styled-components';
 import { render, screen } from '@testing-library/react';
+import StyledApp from 'components/StyledApp';
 
 
 test('renders Home page', () => {
     const { getByText } = render(
-        <ThemeProvider theme={theme}>
+        <StyledApp>
             <Home />
-        </ThemeProvider>
+        </StyledApp>
     
     );
     const HelloWorldElement = getByText('Hello, World!');
