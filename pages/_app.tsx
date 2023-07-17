@@ -1,18 +1,12 @@
-import Head from 'next/head'
-import React from 'react'
-
-import { name } from 'package.json';
-
+import StyledApp from 'components/StyledApp';
+import Metadata from 'components/pages/Metadata';
 
 import type { AppProps } from 'next/app';
-import StyledApp from 'components/StyledApp';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head>
-        <title>{ name }</title>
-      </Head>
+      <Metadata />
       <StyledApp>
         <Component {...pageProps} />
       </StyledApp>

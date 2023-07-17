@@ -1,7 +1,13 @@
 {
   "name": "de_wpage",
   "version": "1.0.0",
-  "description": "DE - Portfolio",
+  "description": "Personal Webpage - Desktop Environment",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sylbird/de_wpage.git"
+  },
+  "author": "Sylbird",
+  "license": "ISC",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,12 +16,6 @@
     "stylelint": "stylelint **/*.tsx",
     "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Sylbird/de_wpage.git"
-  },
-  "author": "Sylbird",
-  "license": "ISC",
   "dependencies": {
     "next": "13.4.9",
     "react": "18.2.0",
