@@ -1,5 +1,5 @@
-import HelloWorld from "components/apps/HelloWorld"
+import { ProcessDirectory } from "utils/ProcessDir"
 
 export default function Home() {
-  return <HelloWorld />
+  return <ProcessDirectory.HelloWorld.Component />
 }
