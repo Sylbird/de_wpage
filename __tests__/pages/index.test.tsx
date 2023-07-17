@@ -8,7 +8,6 @@ test('renders Home page', () => {
         <StyledApp>
             <Home />
         </StyledApp>
-    
     );
 
     expect(getByText('Hello, World!')).toBeInTheDocument();

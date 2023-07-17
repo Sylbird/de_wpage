@@ -1,5 +1,5 @@
-import Title from "styles/Title"
+import HelloWorld from "components/apps/HelloWorld"
 
 export default function Home() {
-  return <Title>Hello, World!</Title>
+  return <HelloWorld />
 }
