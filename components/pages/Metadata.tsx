@@ -1,6 +1,5 @@
 import Head from 'next/head';
 
-import { FC } from 'react';
 import { PACKAGE_DATA } from 'utils/constants';
 
 const { alias, description } = PACKAGE_DATA;
