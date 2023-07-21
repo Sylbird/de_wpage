@@ -1,5 +1,10 @@
-import { ProcessDirectory } from "utils/ProcessDir"
+import ProcessLoader from "components/system/window/ProcessLoader";
+import { ProcessProvider } from "contexts/process/processProvider";
 
 export default function Home() {
-  return <ProcessDirectory.HelloWorld.Component />
+  return (
+    <ProcessProvider>
+      <ProcessLoader/>
+    </ProcessProvider>
+  );
 }
