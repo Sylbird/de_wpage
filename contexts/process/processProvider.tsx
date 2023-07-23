@@ -1,10 +1,10 @@
-import useProcessContextState from "hooks/useProcessContextState";
-import ProcessDirectory from "contexts/process/directory";
-import { createContext } from "react";
-import type { ProcessContextState } from "contexts/process/types";
+import useProcessContextState from 'hooks/useProcessContextState';
+import ProcessDirectory from 'contexts/process/directory';
+import { createContext } from 'react';
+import type { ProcessContextState } from 'contexts/process/types';
 
 export const ProcessContext = createContext<ProcessContextState>({
-  processes: {},
+  processes: {}
 });
 
 export const ProcessProvider: FC = ({ children }) => (

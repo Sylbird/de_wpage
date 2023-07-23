@@ -1,5 +1,5 @@
-import { useState } from "react";
-import type { ProcessContextState, Processes } from "contexts/process/types";
+import { useState } from 'react';
+import type { ProcessContextState, Processes } from 'contexts/process/types';
 
 const useProcessContextState = (
   startupProcesses: Processes

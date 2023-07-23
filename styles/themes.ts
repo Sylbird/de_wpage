@@ -1,13 +1,13 @@
 interface ThemeInterface {
-    colors: {
-      primary: string
-    }
-  }
-  
-  const theme: ThemeInterface = {
-    colors: {
-      primary: '#0070f3',
-    }
-  }
+  colors: {
+    primary: string;
+  };
+}
 
-  export default theme;
+const theme: ThemeInterface = {
+  colors: {
+    primary: '#0070f3'
+  }
+};
+
+export default theme;

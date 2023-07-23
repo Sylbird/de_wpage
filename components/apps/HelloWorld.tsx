@@ -1,5 +1,5 @@
-import Title from "styles/Title";
+import Title from 'styles/Title';
 
-const HelloWorld: FC = () => <Title>Hello, World!</Title>
+const HelloWorld: FC = () => <Title>Hello, World!</Title>;
 
 export default HelloWorld;

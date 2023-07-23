@@ -1,4 +1,4 @@
-import { ProcessConsumer } from "contexts/process/processProvider";
+import { ProcessConsumer } from 'contexts/process/processProvider';
 
 const ProcessLoader: FC = () => {
   return (
