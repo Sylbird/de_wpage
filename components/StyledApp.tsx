@@ -1,11 +1,11 @@
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'styles/GlobalStyle';
-import theme from 'styles/defaultTheme/theme';
+import themes from 'styles/themes';
 
 const StyledApp: FC = ({ children }) => (
   <>
     <GlobalStyle />
-    <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    <ThemeProvider theme={themes.defaultTheme}>{children}</ThemeProvider>
   </>
 );
 

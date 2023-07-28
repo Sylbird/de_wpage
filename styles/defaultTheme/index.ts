@@ -1,9 +1,8 @@
 import type { DefaultTheme } from 'styled-components';
+import colors from 'styles/defaultTheme/colors';
 
 const defaultTheme: DefaultTheme = {
-  colors: {
-    primary: '#0070f3'
-  }
+  colors
 };
 
 export default defaultTheme;
