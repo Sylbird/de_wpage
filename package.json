@@ -17,9 +17,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "next": "13.4.9",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "next": "^13.4.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "styled-components": "^6.0.3"
   },
   "overrides": {
@@ -39,6 +39,6 @@
     "postcss-styled-syntax": "^0.4.0",
     "stylelint": "^15.10.1",
     "stylelint-config-standard": "^34.0.0",
-    "typescript": "5.1.6"
+    "typescript": "^5.1.6"
   }
 }
