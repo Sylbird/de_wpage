@@ -13,7 +13,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "stylelint": "stylelint **/*.tsx",
+    "stylelint": "stylelint --formatter=verbose **/*.ts*",
     "test": "jest"
   },
   "dependencies": {
