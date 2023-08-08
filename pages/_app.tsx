@@ -1,4 +1,4 @@
-import StyledApp from 'components/StyledApp';
+import StyledApp from 'components/pages/StyledApp';
 import Metadata from 'components/pages/Metadata';
 
 import type { AppProps } from 'next/app';

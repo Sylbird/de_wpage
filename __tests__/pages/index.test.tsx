@@ -1,5 +1,5 @@
 import Home from 'pages/index';
-import StyledApp from 'components/StyledApp';
+import StyledApp from 'components/pages/StyledApp';
 
 import { render } from '@testing-library/react';
 
