@@ -2,6 +2,7 @@ import withServerStyleSheet from 'components/withServerStyleSheet';
 import type { DocumentContext, DocumentInitialProps } from 'next/document';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import { ReactElement } from 'react';
+import { DEFAULT_LOCALE } from 'utils/constants';
 
 export default class MyDocument extends Document {
   static async getInitialProps(
@@ -12,7 +13,7 @@ export default class MyDocument extends Document {
 
   render(): ReactElement {
     return (
-      <Html lang="en">
+      <Html lang={DEFAULT_LOCALE}>
         <Head />
         <body>
           <Main />

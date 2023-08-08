@@ -9,3 +9,5 @@ export const PACKAGE_DATA = {
   license: 'ISC',
   version: '1.0.0'
 };
+
+export const DEFAULT_LOCALE = 'en';
