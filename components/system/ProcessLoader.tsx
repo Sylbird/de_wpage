@@ -1,18 +1,5 @@
-import dynamic from 'next/dynamic';
-
+import RenderProcess from 'components/system/RenderProcess';
 import { ProcessConsumer } from 'contexts/process';
-import type { Process } from 'contexts/process/types';
-
-const Window = dynamic(() => import('components/system/window'));
-
-const RenderProcess: FC<Process> = ({ Component, hasWindow }) =>
-  hasWindow ? (
-    <Window>
-      <Component />
-    </Window>
-  ) : (
-    <Component />
-  );
 
 const ProcessLoader: FC = () => {
   return (
