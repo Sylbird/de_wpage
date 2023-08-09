@@ -1,14 +1,11 @@
 import useSessionContextState from 'hooks/useSessionContextState';
-import { createContext } from 'react';
 import { initialSessionContextState } from 'utils/initialContextStates';
 import type { SessionContextState } from 'contexts/session/types';
+import contextFactory from 'contexts/contextFactory';
 
-const { Consumer, Provider } = createContext<SessionContextState>(
-  initialSessionContextState
+const { Consumer, Provider } = contextFactory<SessionContextState>(
+  initialSessionContextState,
+  useSessionContextState
 );
 
-export const SessionProvider: FC = ({ children }) => (
-  <Provider value={useSessionContextState()}>{children}</Provider>
-);
-
-export const SessionConsumer = Consumer;
+export { Consumer as SessionConsumer, Provider as SessionProvider };
