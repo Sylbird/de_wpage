@@ -1,3 +1,5 @@
+import type { ThemeName } from 'styles/themes';
+
 export const PACKAGE_DATA = {
   alias: 'de_wpage',
   author: {
@@ -11,3 +13,5 @@ export const PACKAGE_DATA = {
 };
 
 export const DEFAULT_LOCALE = 'en';
+
+export const DEFAULT_THEME: ThemeName = 'defaultTheme';
