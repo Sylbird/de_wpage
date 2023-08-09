@@ -5,7 +5,7 @@ import { getStartupProcesses } from 'contexts/process/directory';
 
 export default function Home() {
   return (
-    <ProcessProvider startupProcesses={getStartupProcesses()}>
+    <ProcessProvider>
       <Desktop>
         <ProcessLoader />
       </Desktop>
