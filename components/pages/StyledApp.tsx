@@ -8,10 +8,10 @@ import { DEFAULT_THEME } from 'utils/constants';
 const StyledApp: FC = ({ children }) => {
   return (
     <>
-      <GlobalStyle />
       <SessionConsumer>
         {({ themeName }) => (
           <ThemeProvider theme={themes[DEFAULT_THEME] || themes[DEFAULT_THEME]}>
+            <GlobalStyle />
             {children}
           </ThemeProvider>
         )}
