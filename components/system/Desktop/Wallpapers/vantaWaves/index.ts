@@ -9,18 +9,17 @@ import {
 
 const hasWebGL = typeof WebGLRenderingContext !== 'undefined';
 
-const vantaWaves: WallpaperEffect = (
-  desktopRef: React.RefObject<HTMLElement>
-) => {
-  const vantaEffect = hasWebGL
-    ? /* @ts-expect-error Expression is not callable*/
-      WAVES({
-        el: desktopRef.current,
-        THREE,
-        ...disableControls,
-        ...VantaWavesConfig
-      })
-    : undefined;
+const vantaWaves: WallpaperEffect = (el) => {
+  const vantaEffect =
+    el && hasWebGL
+      ? /* @ts-expect-error Expression is not callable*/
+        WAVES({
+          el,
+          THREE,
+          ...disableControls,
+          ...VantaWavesConfig
+        })
+      : undefined;
 
   return () => {
     vantaEffect?.destroy?.();

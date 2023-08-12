@@ -3,7 +3,7 @@ import useWallpaper from 'hooks/useWallpaper';
 import { useRef } from 'react';
 
 const Desktop: FC = ({ children }) => {
-  const desktopRef = useRef<HTMLElement>(null);
+  const desktopRef = useRef<HTMLElement | null>(null);
   useWallpaper(desktopRef);
   return <StyledDesktop ref={desktopRef}>{children}</StyledDesktop>;
 };
