@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const StyledDesktop = styled.main`
+  background-size: cover;
   background-color: #000000;
   bottom: 0;
   height: 100vh;

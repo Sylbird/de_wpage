@@ -15,6 +15,11 @@ const GlobalStyle = createGlobalStyle`
     -webkit-touch-callout: none;
     user-select: none;
   }
+  
+  ol,
+  ul {
+    list-style: none;
+  }
 `;
 
 export default GlobalStyle;
