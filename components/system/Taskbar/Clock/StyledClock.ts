@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledClock = styled.time`
+const StyledClock = styled.div`
   background-color: #00c57a;
   display: flex;
   height: 100%;
