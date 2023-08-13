@@ -1,17 +1,16 @@
 import RenderProcess from 'components/system/RenderProcess';
 import { ProcessConsumer } from 'contexts/process';
-import type { Process } from 'contexts/process/types';
+import type { Processes } from 'contexts/process/types';
 
-const ProcessesReducer = ([id, process]: [string, Process]) => (
-  <RenderProcess key={id} {...process} />
+const renderProcesses = (processes: Processes) =>
+  Object.entries(processes).map(([id, process]) => (
+    <RenderProcess key={id} {...process} />
+  ));
+
+const ProcessLoader: FC = () => (
+  <ProcessConsumer>
+    {({ processes }) => renderProcesses(processes)}
+  </ProcessConsumer>
 );
-
-const ProcessLoader: FC = () => {
-  return (
-    <ProcessConsumer>
-      {({ processes }) => Object.entries(processes).map(ProcessesReducer)}
-    </ProcessConsumer>
-  );
-};
 
 export default ProcessLoader;
