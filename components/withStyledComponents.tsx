@@ -2,7 +2,7 @@ import type { DocumentContext } from 'next/document';
 import Document from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-const withServerStyleSheet = async (ctx: DocumentContext) => {
+const withStyledComponents = async (ctx: DocumentContext) => {
   const sheet = new ServerStyleSheet();
   const originalRenderPage = ctx.renderPage;
 
@@ -12,19 +12,14 @@ const withServerStyleSheet = async (ctx: DocumentContext) => {
         enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />)
       });
 
-    const initialProps = await Document.getInitialProps(ctx);
+    const { styles, ...initialProps } = await Document.getInitialProps(ctx);
     return {
       ...initialProps,
-      styles: (
-        <>
-          {initialProps.styles}
-          {sheet.getStyleElement()}
-        </>
-      )
+      styles: [styles, sheet.getStyleElement()]
     };
   } finally {
     sheet.seal();
   }
 };
 
-export default withServerStyleSheet;
+export default withStyledComponents;
