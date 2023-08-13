@@ -4,15 +4,15 @@ import Metadata from 'components/pages/Metadata';
 import type { AppProps } from 'next/app';
 import { SessionProvider } from 'contexts/session';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <Metadata />
-      <SessionProvider>
-        <StyledApp>
-          <Component {...pageProps} />
-        </StyledApp>
-      </SessionProvider>
-    </>
-  );
-}
+const App = ({ Component, pageProps }: AppProps): React.ReactElement => (
+  <>
+    <Metadata />
+    <SessionProvider>
+      <StyledApp>
+        <Component {...pageProps} />
+      </StyledApp>
+    </SessionProvider>
+  </>
+);
+
+export default App;
