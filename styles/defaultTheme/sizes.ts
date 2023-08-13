@@ -1,12 +1,14 @@
 const sizes = {
   clock: {
+    fontSize: '12px',
     width: '80px'
   },
   startButton: {
-    width: '50px'
+    width: '48px'
   },
   taskbar: {
-    height: '50px',
+    blur: '15px',
+    height: '48px',
     entry: {
       maxWidth: '120px'
     }

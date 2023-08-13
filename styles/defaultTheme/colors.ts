@@ -1,5 +1,8 @@
 const colors = {
   primary: '#0070f3',
+  taskbar: {
+    background: 'rgba(32, 32, 32, 0.7)'
+  },
   window: {
     background: '#dddddd'
   }

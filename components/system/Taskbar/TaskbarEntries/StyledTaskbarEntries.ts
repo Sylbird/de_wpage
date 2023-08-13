@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const StyledTaskbarEntries = styled.ol`
-  background-color: #6200ff;
   display: flex;
   height: 100%;
   left: ${({ theme }) => theme.sizes.startButton.width};

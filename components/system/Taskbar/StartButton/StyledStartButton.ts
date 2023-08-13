@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledStartButton = styled.button`
-  background-color: #000fff;
+  background-color: transparent;
   display: flex;
   height: 100%;
   left: 0;

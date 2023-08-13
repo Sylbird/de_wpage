@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const StyledClock = styled.div`
-  background-color: #00c57a;
   display: flex;
+  font-size: ${({ theme }) => theme.sizes.clock.fontSize};
   height: 100%;
   place-content: center;
   place-items: center;
