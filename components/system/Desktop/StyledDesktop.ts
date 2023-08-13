@@ -6,6 +6,7 @@ const StyledDesktop = styled.main`
   bottom: 0;
   height: 100vh;
   left: 0;
+  overscroll-behavior: none;
   position: fixed;
   right: 0;
   top: 0;

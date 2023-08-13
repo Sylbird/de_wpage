@@ -7,6 +7,5 @@ export const HelloWorld: Process = {
 };
 
 export const Taskbar: Process = {
-  Component: dynamic(() => import('components/system/Taskbar')),
-  hasWindow: true
+  Component: dynamic(() => import('components/system/Taskbar'))
 };
