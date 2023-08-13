@@ -5,7 +5,7 @@ import { WallpaperEffect } from 'styles/defaultTheme/wallpaper';
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: typeof colors;
-    wallpaper: WallpaperEffect;
+    wallpaper?: WallpaperEffect;
   }
   export function useTheme(): DefaultTheme;
 }
