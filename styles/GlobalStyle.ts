@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   body{
-    font-family: 'Segoe UI', system-ui, Roboto, 'Helvetica Neue', sans-serif;
+    font-family: ${({ theme }) => theme.formats.systemFont};
   }
 
   ol,
