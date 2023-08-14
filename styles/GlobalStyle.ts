@@ -16,6 +16,10 @@ const GlobalStyle = createGlobalStyle`
     user-select: none;
   }
   
+  body{
+    font-family: 'Segoe UI', system-ui, Roboto, 'Helvetica Neue', sans-serif;
+  }
+
   ol,
   ul {
     list-style: none;

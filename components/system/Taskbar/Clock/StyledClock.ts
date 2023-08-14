@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const StyledClock = styled.div`
+  color: ${({ theme }) => theme.colors.text};
   display: flex;
   font-size: ${({ theme }) => theme.sizes.clock.fontSize};
   height: 100%;
