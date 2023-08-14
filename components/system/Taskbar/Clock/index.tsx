@@ -5,7 +5,7 @@ import useLocaleTimeDate from 'components/system/Taskbar/Clock/useLocaleTimeDate
 
 const Clock = (): JSX.Element => {
   const [now, setNow] = useState(new Date());
-  const { date, time } = useLocaleTimeDate(now);
+  const { numericDate, date, time } = useLocaleTimeDate(now);
   const updateClock = useCallback(() => setNow(new Date()), [setNow]);
 
   useSyncedClock(updateClock);
@@ -13,6 +13,7 @@ const Clock = (): JSX.Element => {
   return (
     <StyledClock title={date} suppressHydrationWarning>
       {time}
+      <div>{numericDate}</div>
     </StyledClock>
   );
 };

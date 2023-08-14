@@ -1,4 +1,9 @@
 const formats = {
+  numericDate: {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  } as Intl.DateTimeFormatOptions,
   date: {
     weekday: 'long',
     month: 'long',
