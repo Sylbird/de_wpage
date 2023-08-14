@@ -1,5 +1,10 @@
 import StyledStartButton from 'components/system/Taskbar/StartButton/StyledStartButton';
+import StartButtonIcon from 'components/system/Taskbar/StartButton/StartButtonIcon';
 
-const StartButton: FC = () => <StyledStartButton>0</StyledStartButton>;
+const StartButton: FC = () => (
+  <StyledStartButton>
+    <StartButtonIcon />
+  </StyledStartButton>
+);
 
 export default StartButton;

@@ -4,6 +4,7 @@ const sizes = {
     width: '80px'
   },
   startButton: {
+    iconSize: '30px',
     width: '48px'
   },
   taskbar: {
