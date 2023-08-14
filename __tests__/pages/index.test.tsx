@@ -1,14 +1,14 @@
 import Home from 'pages/index';
 import StyledApp from 'components/pages/StyledApp';
 
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 test('renders Home page', () => {
-  const { getByText } = render(
+  render(
     <StyledApp>
       <Home />
     </StyledApp>
   );
 
-  expect(getByText('Hello, World!')).toBeInTheDocument();
+  expect(screen.getByText('Hello, World!')).toBeInTheDocument();
 });
