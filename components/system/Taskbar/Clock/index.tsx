@@ -10,7 +10,11 @@ const Clock = (): JSX.Element => {
 
   useSyncedClock(updateClock);
 
-  return <StyledClock title={date}>{time}</StyledClock>;
+  return (
+    <StyledClock title={date} suppressHydrationWarning>
+      {time}
+    </StyledClock>
+  );
 };
 
 export default Clock;
