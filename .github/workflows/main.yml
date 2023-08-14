@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Install modules
-        run: yarn install
-      - name: Run build
+      - name: Install Dependencies
+        run: NODE_OPTIONS='--openssl-legacy-provider' yarn
+      - name: Build App
         run: yarn build
-      - name: Run Tests
+      - name: Run Jest Tests
         run: yarn test
