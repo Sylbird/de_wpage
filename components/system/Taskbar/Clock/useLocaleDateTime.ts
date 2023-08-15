@@ -1,13 +1,13 @@
 import { useTheme } from 'styled-components';
 import { DEFAULT_LOCALE } from 'utils/constants';
 
-type LocaleTimeDate = {
+type LocaleDateTime = {
   numericDate: string;
   date: string;
   time: string;
 };
 
-const useLocaleTimeDate = (now: Date): LocaleTimeDate => {
+const useLocaleDateTime = (now: Date): LocaleDateTime => {
   const locale = DEFAULT_LOCALE;
   const { formats } = useTheme();
 
@@ -20,4 +20,4 @@ const useLocaleTimeDate = (now: Date): LocaleTimeDate => {
   };
 };
 
-export default useLocaleTimeDate;
+export default useLocaleDateTime;
