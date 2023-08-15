@@ -6,7 +6,7 @@ import useLocaleDateTime from 'components/system/Taskbar/Clock/useLocaleDateTime
 const Clock = (): JSX.Element => {
   const [now, setNow] = useState(new Date());
   const { numericDate, date, time } = useLocaleDateTime(now);
-  const updateClock = useCallback(() => setNow(new Date()), [setNow]);
+  const updateClock = useCallback(() => setNow(new Date()), []);
 
   useSyncedClock(updateClock);
 
