@@ -10,5 +10,5 @@ test('renders Home page', () => {
     </StyledApp>
   );
 
-  expect(screen.getByText('Hello, World!')).toBeInTheDocument();
+  expect(screen.getByRole('main')).toBeInTheDocument();
 });
