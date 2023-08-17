@@ -1,4 +1,5 @@
 const colors = {
+  highlight: '#76b9ed',
   primary: '#0070f3',
   taskbar: {
     background: 'rgba(32, 32, 32, 0.7)'

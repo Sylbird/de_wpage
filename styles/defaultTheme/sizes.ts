@@ -11,7 +11,10 @@ const sizes = {
     blur: '15px',
     height: '48px',
     entry: {
-      maxWidth: '120px'
+      borderSize: '3px',
+      iconSize: '30px',
+      minWidth: '48px',
+      maxWidth: '121px'
     }
   }
 };
