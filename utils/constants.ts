@@ -15,3 +15,5 @@ export const PACKAGE_DATA = {
 export const DEFAULT_LOCALE = 'en';
 
 export const DEFAULT_THEME: ThemeName = 'defaultTheme';
+
+export const MILLISECONDS_IN_SECOND = 1000;
