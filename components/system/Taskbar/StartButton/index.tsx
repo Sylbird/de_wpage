@@ -3,16 +3,9 @@ import StartButtonIcon from 'components/system/Taskbar/StartButton/StartButtonIc
 import { ProcessConsumer } from 'contexts/process';
 
 const StartButton: FC = () => (
-  <ProcessConsumer>
-    {({ close, open }) => (
-      <StyledStartButton
-        onClick={() => open('HelloWorld')}
-        onDoubleClick={() => close('HelloWorld')}
-      >
-        <StartButtonIcon />
-      </StyledStartButton>
-    )}
-  </ProcessConsumer>
+  <StyledStartButton>
+    <StartButtonIcon />
+  </StyledStartButton>
 );
 
 export default StartButton;
