@@ -6,6 +6,10 @@ const sizes = {
     fontSize: '12px',
     width: '80px'
   },
+  fileEntry: {
+    fontSize: '12px',
+    iconSize: '48px'
+  },
   startButton: {
     iconSize: '30px',
     width: '42px'
