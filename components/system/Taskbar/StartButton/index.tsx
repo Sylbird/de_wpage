@@ -2,7 +2,7 @@ import StyledStartButton from 'components/system/Taskbar/StartButton/StyledStart
 import StartButtonIcon from 'components/system/Taskbar/StartButton/StartButtonIcon';
 
 const StartButton: FC = () => (
-  <StyledStartButton>
+  <StyledStartButton title="Start">
     <StartButtonIcon />
   </StyledStartButton>
 );

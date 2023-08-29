@@ -2,7 +2,6 @@ import { styled } from 'styled-components';
 
 const StyledFileEntry = styled.li`
   button {
-    background-color: transparent;
     position: relative;
 
     figure {

@@ -1,8 +1,7 @@
 import styled from 'styled-components';
+import Button from 'styles/custom/Button';
 
-const StyledStartButton = styled.button.attrs({
-  title: 'Start'
-})`
+const StyledStartButton = styled(Button)`
   &:active {
     svg {
       transform: scale(0.75);
@@ -28,7 +27,6 @@ const StyledStartButton = styled.button.attrs({
     }
   }
 
-  background-color: transparent;
   border-radius: 5px;
   display: flex;
   height: calc(100% - ${({ theme }) => theme.sizes.taskbar.margin});
