@@ -2,6 +2,8 @@ export type Process = {
   Component: React.ComponentType;
   hasWindow?: boolean;
   icon: string;
+  maximize?: boolean;
+  minimize?: boolean;
   title: string;
 };
 
@@ -17,4 +19,6 @@ export type ProcessContextState = {
   close: (id: string) => void;
   open: (id: string) => void;
   mapProcesses: ProcessesMap;
+  maximize: (id: string) => void;
+  minimize: (id: string) => void;
 };

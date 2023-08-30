@@ -4,7 +4,12 @@ import type {
   Processes,
   ProcessesMap
 } from 'contexts/process/types';
-import { closeProcess, openProcess } from 'utils/processFunction';
+import {
+  closeProcess,
+  maximizeProcess,
+  minimizeProcess,
+  openProcess
+} from 'utils/processFunction';
 
 const useProcessContextState = (): ProcessContextState => {
   const [processes, setProcesses] = useState<Processes>({});
@@ -13,9 +18,17 @@ const useProcessContextState = (): ProcessContextState => {
     [processes]
   );
   const close = useCallback((id: string) => setProcesses(closeProcess(id)), []);
+  const maximize = useCallback(
+    (id: string) => setProcesses(maximizeProcess(id)),
+    []
+  );
+  const minimize = useCallback(
+    (id: string) => setProcesses(minimizeProcess(id)),
+    []
+  );
   const open = useCallback((id: string) => setProcesses(openProcess(id)), []);
 
-  return { close, open, mapProcesses };
+  return { close, open, mapProcesses, maximize, minimize };
 };
 
 export default useProcessContextState;
