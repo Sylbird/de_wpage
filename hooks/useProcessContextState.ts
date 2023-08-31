@@ -28,7 +28,7 @@ const useProcessContextState = (): ProcessContextState => {
   );
   const open = useCallback((id: string) => setProcesses(openProcess(id)), []);
 
-  return { close, open, mapProcesses, maximize, minimize };
+  return { close, open, mapProcesses, maximize, minimize, processes };
 };
 
 export default useProcessContextState;

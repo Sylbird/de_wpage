@@ -1,9 +1,11 @@
+import type { ProcessComponentProps } from 'components/system/RenderProcess';
+
 export type Process = {
-  Component: React.ComponentType;
+  Component: React.ComponentType<ProcessComponentProps>;
   hasWindow?: boolean;
   icon: string;
-  maximize?: boolean;
-  minimize?: boolean;
+  maximized?: boolean;
+  minimized?: boolean;
   title: string;
 };
 
@@ -21,4 +23,5 @@ export type ProcessContextState = {
   mapProcesses: ProcessesMap;
   maximize: (id: string) => void;
   minimize: (id: string) => void;
+  processes: Processes;
 };

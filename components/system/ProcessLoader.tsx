@@ -5,7 +5,12 @@ const ProcessLoader: FC = () => (
   <ProcessConsumer>
     {({ mapProcesses }) =>
       mapProcesses(([id, { Component, hasWindow }]) => (
-        <RenderProcess key={id} Component={Component} hasWindow={hasWindow} />
+        <RenderProcess
+          key={id}
+          Component={Component}
+          id={id}
+          hasWindow={hasWindow}
+        />
       ))
     }
   </ProcessConsumer>

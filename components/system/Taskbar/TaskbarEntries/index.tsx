@@ -7,7 +7,12 @@ const TaskbarEntries: FC = () => (
     <ProcessConsumer>
       {({ mapProcesses }) =>
         mapProcesses(([id, { icon, title }]) => (
-          <TaskbarEntry key={id} icon={icon} title={title}></TaskbarEntry>
+          <TaskbarEntry
+            key={id}
+            icon={icon}
+            id={id}
+            title={title}
+          ></TaskbarEntry>
         ))
       }
     </ProcessConsumer>
