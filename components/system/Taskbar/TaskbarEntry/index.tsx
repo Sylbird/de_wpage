@@ -2,6 +2,7 @@ import StyledTaskbarEntry from 'components/system/Taskbar/TaskbarEntry/StyledTas
 import { useProcesses } from 'contexts/process';
 import { useCallback } from 'react';
 import Button from 'styles/custom/Button';
+import Image from 'styles/custom/Image';
 
 type TaskbarEntryProps = {
   icon: string;
@@ -17,7 +18,7 @@ const TaskbarEntry = ({ icon, id, title }: TaskbarEntryProps): JSX.Element => {
     <StyledTaskbarEntry>
       <Button onClick={onClick}>
         <figure>
-          <img src={icon} alt={title} />
+          <Image src={icon} alt={title} />
         </figure>
       </Button>
     </StyledTaskbarEntry>

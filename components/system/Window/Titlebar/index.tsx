@@ -1,6 +1,7 @@
 import { useProcesses } from 'contexts/process';
 import { useCallback } from 'react';
 import Button from 'styles/custom/Button';
+import Image from 'styles/custom/Image';
 import StyledTitlebar from 'components/system/Window/Titlebar/StyledTitlebar';
 import {
   CloseIcon,
@@ -30,7 +31,7 @@ const Titlebar = ({ id }: TitlebarProps): JSX.Element => {
     <StyledTitlebar className="handle">
       <h1>
         <figure>
-          <img src={icon} alt={title} />
+          <Image src={icon} alt={title} />
           <figcaption>{title}</figcaption>
         </figure>
       </h1>
