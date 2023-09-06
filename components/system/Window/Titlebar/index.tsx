@@ -23,8 +23,8 @@ const Titlebar = ({ id }: TitlebarProps): JSX.Element => {
   } = useProcesses();
 
   const onMinimize = useCallback(() => minimize(id), [id, minimize]);
-  const onMaximize = useCallback(() => minimize(id), [id, minimize]);
-  const onClose = useCallback(() => minimize(id), [id, minimize]);
+  const onMaximize = useCallback(() => maximize(id), [id, maximize]);
+  const onClose = useCallback(() => close(id), [id, close]);
 
   return (
     <StyledTitlebar>
