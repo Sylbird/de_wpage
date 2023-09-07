@@ -1,3 +1,5 @@
+import { HandleStyles } from 'react-rnd';
+
 const rndDefaults = {
   cancel: '.cancel',
   dragHandleClassName: 'handle',
@@ -51,7 +53,7 @@ const rndDefaults = {
       top: '-3px',
       width: '12px'
     }
-  }
+  } as HandleStyles
 };
 
 export default rndDefaults;
