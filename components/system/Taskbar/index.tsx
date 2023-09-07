@@ -4,7 +4,7 @@ import TaskbarEntries from 'components/system/Taskbar/TaskbarEntries';
 import Clock from 'components/system/Taskbar/Clock';
 
 const Taskbar: FC = () => (
-  <StyledTaskbar>
+  <StyledTaskbar className="acrylic">
     <StartButton />
     <TaskbarEntries />
     <Clock />
