@@ -1,6 +1,13 @@
 import { styled } from 'styled-components';
 
 const StyledFileEntry = styled.li`
+  border-radius: 5px;
+  padding: 2px;
+
+  &:hover {
+    background-color: rgba(162, 186, 205, 0.25);
+    position: relative;
+  }
   button {
     position: relative;
 
@@ -8,6 +15,7 @@ const StyledFileEntry = styled.li`
       figcaption {
         font-size: ${({ theme }) => theme.sizes.fileEntry.fontSize};
         color: ${({ theme }) => theme.colors.text};
+        text-shadow: ${({ theme }) => theme.colors.fileEntry.textShadow};
       }
 
       img {
