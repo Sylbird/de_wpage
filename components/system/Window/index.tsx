@@ -3,9 +3,9 @@ import { useProcesses } from 'contexts/process';
 import { ProcessComponentProps } from 'components/system/RenderProcess';
 import Titlebar from 'components/system/Window/Titlebar';
 import { Rnd } from 'react-rnd';
-import useResizable from 'hooks/useResizable';
+import useResizable from 'hooks/useResizableAndDraggable';
 import rndDefaults from 'utils/rndDefaults';
-import useDraggable from 'hooks/useDraggable';
+import useResizableAndDraggable from 'hooks/useResizableAndDraggable';
 
 const Window: FC<ProcessComponentProps> = ({ children, id }) => {
   const {
@@ -13,8 +13,8 @@ const Window: FC<ProcessComponentProps> = ({ children, id }) => {
       [id]: { maximized, minimized }
     }
   } = useProcesses();
-  const { height, width, updateSize } = useResizable(maximized);
-  const { x, y, updatePosition } = useDraggable(maximized);
+  const { height, width, updateSize, x, y, updatePosition } =
+    useResizableAndDraggable(maximized);
 
   return (
     <Rnd
