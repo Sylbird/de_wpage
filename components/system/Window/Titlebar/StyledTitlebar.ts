@@ -12,7 +12,7 @@ const StyledTitlebar = styled.header`
     flex-grow: 1;
     font-size: ${({ theme }) => theme.sizes.titleBar.fontSize};
     font-weight: 400;
-    height: 30px;
+    height: ${({ theme }) => theme.sizes.titleBar.height}px;
 
     figure {
       align-items: center;
