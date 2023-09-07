@@ -28,6 +28,14 @@ const sizes = {
     },
     height: '48px',
     margin: '6px'
+  },
+  titleBar: {
+    buttonIconWidth: '10px',
+    buttonWidth: '45px',
+    fontSize: '12px',
+    height: 30,
+    iconMarginRight: '5px',
+    iconSize: '16px'
   }
 };
 

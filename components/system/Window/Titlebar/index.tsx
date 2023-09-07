@@ -23,7 +23,7 @@ const Titlebar = ({ id }: TitlebarProps): JSX.Element => {
   const { onClose, onMaximize, onMinimize } = useWindowsActions(id);
 
   return (
-    <StyledTitlebar className="handle">
+    <StyledTitlebar className="handle acrylic">
       <h1>
         <figure>
           <Image src={icon} alt={title} />
@@ -37,7 +37,7 @@ const Titlebar = ({ id }: TitlebarProps): JSX.Element => {
         <Button onClick={onMaximize}>
           <MaximizeIcon />
         </Button>
-        <Button onClick={onClose}>
+        <Button onClick={onClose} className="close">
           <CloseIcon />
         </Button>
       </nav>
