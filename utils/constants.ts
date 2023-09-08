@@ -1,4 +1,4 @@
-import { Size } from 'hooks/useResizableAndDraggable';
+import { Size } from 'hooks/useResizable';
 import { Position } from 'react-rnd';
 import type { ThemeName } from 'styles/themes';
 
@@ -20,7 +20,7 @@ export const PACKAGE_DATA = {
     repository: 'https://github.com/Sylbird/de_wpage.git'
   },
   description: 'Personal Webpage - Desktop Environment',
-  license: 'ISC',
+  license: 'MIT, ISC',
   version: '1.0.0'
 };
 
