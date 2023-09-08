@@ -1,4 +1,16 @@
+import { Size } from 'hooks/useResizableAndDraggable';
+import { Position } from 'react-rnd';
 import type { ThemeName } from 'styles/themes';
+
+export const DEFAULT_WINDOW_POSITION: Position = {
+  x: 0,
+  y: 0
+};
+
+export const DEFAULT_WINDOW_SIZE: Size = {
+  height: '350px',
+  width: '350px'
+};
 
 export const PACKAGE_DATA = {
   alias: 'de_wpage',

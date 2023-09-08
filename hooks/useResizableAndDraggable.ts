@@ -1,36 +1,24 @@
-import { Position, RndResizeCallback } from 'react-rnd';
+import { Props, Position, RndResizeCallback } from 'react-rnd';
 import { useCallback, useMemo, useState } from 'react';
 import { DraggableEventHandler } from 'react-draggable';
 import sizes from 'styles/defaultTheme/sizes';
+import { DEFAULT_WINDOW_POSITION, DEFAULT_WINDOW_SIZE } from 'utils/constants';
+
+export type Size = NonNullable<Props['size']>;
 
 type Draggable = Position & {
   updatePosition: DraggableEventHandler;
-};
-
-type Size = {
-  height: string;
-  width: string;
 };
 
 type Resizable = Size & {
   updateSize: RndResizeCallback;
 };
 
-const defaultWindowSize = {
-  height: '300px',
-  width: '250px'
-};
-
 type ResizableAndDraggable = Resizable & Draggable;
 
-const defaultWindowPosition = {
-  x: 0,
-  y: 0
-};
-
 const useResizableAndDraggable = (maximized = false): ResizableAndDraggable => {
-  const [{ height, width }, setSize] = useState<Size>(defaultWindowSize);
-  const [{ x, y }, setPosition] = useState<Position>(defaultWindowPosition);
+  const [{ height, width }, setSize] = useState<Size>(DEFAULT_WINDOW_SIZE);
+  const [{ x, y }, setPosition] = useState<Position>(DEFAULT_WINDOW_POSITION);
   const updatePosition = useCallback<DraggableEventHandler>(
     (_event, { x: positionX, y: positionY }) =>
       setPosition({ x: positionX, y: positionY }),
