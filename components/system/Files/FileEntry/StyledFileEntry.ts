@@ -2,10 +2,11 @@ import { styled } from 'styled-components';
 
 const StyledFileEntry = styled.li`
   border-radius: 5px;
+  display: flex;
   padding: 2px;
 
   &:hover {
-    background-color: rgba(162, 186, 205, 0.25);
+    background-color: ${({ theme }) => theme.colors.fileEntry.background};
     position: relative;
   }
   button {

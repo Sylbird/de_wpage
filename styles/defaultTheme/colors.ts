@@ -1,5 +1,6 @@
 const colors = {
   fileEntry: {
+    background: 'rgba(168, 180, 190, 0.25)',
     textShadow: `
     0 0 1px rgba(0, 0, 0, 75%),
     0 0 2px rgba(0, 0, 0, 50%),
