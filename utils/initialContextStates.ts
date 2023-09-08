@@ -17,5 +17,7 @@ export const initialProcessContextState: ProcessContextState = {
 
 export const initialSessionContextState: SessionContextState = {
   themeName: '',
-  setThemeName: () => undefined
+  windowStates: {},
+  setThemeName: () => undefined,
+  setWindowStates: () => undefined
 };
