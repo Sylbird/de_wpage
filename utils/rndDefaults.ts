@@ -1,10 +1,15 @@
 import { CSSProperties } from 'react';
 import { HandleStyles } from 'react-rnd';
 
+export const MIN_WINDOW_HEIGHT = 30;
+export const MIN_WINDOW_WIDTH = 170;
+
 const rndDefaults = {
   cancel: '.cancel',
   dragHandleClassName: 'handle',
   enableUserSelectHack: false,
+  minHeight: `${MIN_WINDOW_HEIGHT}px`,
+  minWidth: `${MIN_WINDOW_WIDTH}px`,
   resizeHandleStyles: {
     bottom: {
       bottom: '-3px',
