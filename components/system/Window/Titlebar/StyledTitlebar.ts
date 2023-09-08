@@ -1,27 +1,36 @@
 import { styled } from 'styled-components';
 
 const StyledTitlebar = styled.header`
+  display: flex;
+  height: ${({ theme }) => theme.sizes.titleBar.height}px;
+
   > * {
     z-index: 0;
   }
 
-  display: flex;
   > h1 {
     display: flex;
     color: ${({ theme }) => theme.colors.text};
     flex-grow: 1;
     font-size: ${({ theme }) => theme.sizes.titleBar.fontSize};
     font-weight: 400;
-    height: ${({ theme }) => theme.sizes.titleBar.height}px;
+    min-width: 0;
 
     figure {
       align-items: center;
       display: flex;
       margin-left: 8px;
+      min-width: inherit;
+
       img {
         height: ${({ theme }) => theme.sizes.titleBar.iconSize};
         margin-right: ${({ theme }) => theme.sizes.titleBar.iconMarginRight};
         width: ${({ theme }) => theme.sizes.titleBar.iconSize};
+      }
+
+      figcaption {
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }
@@ -30,6 +39,8 @@ const StyledTitlebar = styled.header`
     display: flex;
 
     button {
+      border-left: 1px solid transparent;
+      box-sizing: content-box;
       display: flex;
       place-content: center;
       place-items: center;
@@ -37,15 +48,15 @@ const StyledTitlebar = styled.header`
       width: ${({ theme }) => theme.sizes.titleBar.buttonWidth};
 
       &:hover {
-        background-color: rgba(26, 26, 26, 1);
+        background-color: ${({ theme }) => theme.colors.titlebar.hover};
 
         &.close {
-          background-color: rgb(200, 15, 30);
+          background-color: ${({ theme }) => theme.colors.titlebar.closeHover};
         }
       }
 
       svg {
-        fill: rgb(255, 255, 255);
+        fill: ${({ theme }) => theme.colors.text};
         width: ${({ theme }) => theme.sizes.titleBar.buttonIconWidth};
       }
     }
