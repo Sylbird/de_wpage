@@ -23,7 +23,9 @@ const colors = {
     hover: 'rgba(159, 154, 151,0.1)'
   },
   window: {
-    background: '#dddddd'
+    background: 'rgba(25, 25, 25, 1)',
+    outline: '1px solid rgba(63, 64, 67)',
+    shadow: '0 0 15px 0 rgba(0, 0, 0, 50%)'
   }
 };
 
