@@ -2,8 +2,8 @@ import { Position } from 'react-rnd';
 import { Size } from 'hooks/useResizable';
 
 type WindowState = {
-  position: Position;
-  size: Size;
+  position?: Position;
+  size?: Size;
 };
 
 export type WindowStates = {

@@ -4,10 +4,15 @@ import { DraggableEventHandler } from 'react-draggable';
 import useResizable from 'hooks/useResizable';
 import useDraggable from 'hooks/useDraggable';
 import rndDefaults from 'utils/rndDefaults';
+import { useSession } from 'contexts/session';
 
-const useRnd = (maximized = false): Props => {
-  const [size, setSize] = useResizable(maximized);
-  const [position, setPosition] = useDraggable(maximized);
+const useRnd = (id: string, maximized = false): Props => {
+  const {
+    windowStates: { [id]: windowState }
+  } = useSession();
+  const { position: previousPosition, size: previousSize } = windowState || {};
+  const [position, setPosition] = useDraggable(maximized, previousPosition);
+  const [size, setSize] = useResizable(maximized, previousSize);
 
   const onDragStop = useCallback<DraggableEventHandler>(
     (_event, { x: positionX, y: positionY }) =>
