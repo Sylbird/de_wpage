@@ -1,6 +1,7 @@
 import type { ProcessComponentProps } from 'components/system/RenderProcess';
 
 export type Process = {
+  autoSizing?: boolean;
   Component: React.ComponentType<ProcessComponentProps>;
   hasWindow?: boolean;
   icon: string;

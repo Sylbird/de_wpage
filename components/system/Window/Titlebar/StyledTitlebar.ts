@@ -55,6 +55,16 @@ const StyledTitlebar = styled.header`
         }
       }
 
+      &:disabled {
+        svg {
+          opacity: 0.2;
+        }
+
+        &:hover {
+          background-color: inherit;
+        }
+      }
+
       svg {
         fill: ${({ theme }) => theme.colors.text};
         width: ${({ theme }) => theme.sizes.titleBar.buttonIconWidth};

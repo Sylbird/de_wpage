@@ -1,5 +1,5 @@
 import { Props } from 'react-rnd';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DEFAULT_WINDOW_SIZE } from 'utils/constants';
 import { useTheme } from 'styled-components';
 
@@ -9,6 +9,7 @@ type Resizable = [Size, React.Dispatch<React.SetStateAction<Size>>];
 
 const useResizable = (
   maximized = false,
+  autoSizing = false,
   size = DEFAULT_WINDOW_SIZE
 ): Resizable => {
   const {
@@ -16,6 +17,12 @@ const useResizable = (
   } = useTheme();
   const [{ height, width }, setSize] = useState<Size>(size);
   const pxToNumber = (value: string): number => Number(value.replace('px', ''));
+
+  useEffect(() => {
+    if (autoSizing) {
+      setSize(size);
+    }
+  }, [autoSizing, size]);
 
   return [
     {
