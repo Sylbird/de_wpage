@@ -8,6 +8,7 @@ export type Process = {
   maximized?: boolean;
   minimized?: boolean;
   title: string;
+  url?: string;
 };
 
 export type Processes = {
@@ -20,7 +21,7 @@ export type ProcessesMap = (
 
 export type ProcessContextState = {
   close: (id: string) => void;
-  open: (id: string) => void;
+  open: (id: string, url: string) => void;
   mapProcesses: ProcessesMap;
   maximize: (id: string) => void;
   minimize: (id: string) => void;
