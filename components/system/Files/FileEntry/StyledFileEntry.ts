@@ -20,8 +20,8 @@ const StyledFileEntry = styled.li`
       }
 
       img {
-        height: ${({ theme }) => theme.sizes.fileEntry.iconSize};
-        width: ${({ theme }) => theme.sizes.fileEntry.iconSize};
+        max-height: ${({ theme }) => theme.sizes.fileEntry.iconSize};
+        max-width: ${({ theme }) => theme.sizes.fileEntry.iconSize};
 
         &:not(:first-of-type) {
           position: absolute;
