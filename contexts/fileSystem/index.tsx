@@ -1,5 +1,5 @@
 import useFileSystemContextState from 'contexts/fileSystem/useFileSystemContextState';
-import { initialFileSystemContextState } from 'utils/initialContextStates';
+import { initialFileSystemContextState } from 'contexts/initialContextStates';
 import type { FileSystemContextState } from 'contexts/fileSystem/types';
 import contextFactory from 'contexts/contextFactory';
 

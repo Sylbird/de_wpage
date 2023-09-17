@@ -9,7 +9,7 @@ import {
   maximizeProcess,
   minimizeProcess,
   openProcess
-} from 'utils/processFunction';
+} from 'contexts/process/function';
 
 const useProcessContextState = (): ProcessContextState => {
   const [processes, setProcesses] = useState<Processes>({});
