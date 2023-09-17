@@ -1,4 +1,4 @@
-import useRnd from 'hooks/useRnd';
+import useRnd from 'components/system/Window/RndWindow/useRnd';
 import { useProcesses } from 'contexts/process';
 import { Rnd } from 'react-rnd';
 import { useSession } from 'contexts/session';

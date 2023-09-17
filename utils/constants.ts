@@ -1,4 +1,4 @@
-import { Size } from 'hooks/useResizable';
+import { Size } from 'components/system/Window/RndWindow/useResizable';
 import { Position } from 'react-rnd';
 import type { ThemeName } from 'styles/themes';
 
@@ -19,7 +19,7 @@ export const PACKAGE_DATA = {
     name: 'Sylbird',
     repository: 'https://github.com/Sylbird/de_wpage.git'
   },
-  description: 'Personal Webpage - Desktop Environment',
+  description: 'Fake Desktop Environment',
   license: 'MIT, ISC',
   version: '1.0.0'
 };

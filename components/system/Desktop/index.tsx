@@ -1,5 +1,5 @@
 import StyledDesktop from 'components/system/Desktop/StyledDesktop';
-import useWallpaper from 'hooks/useWallpaper';
+import useWallpaper from 'components/system/Desktop/Wallpapers/useWallpaper';
 import { useRef } from 'react';
 
 const Desktop: FC = ({ children }) => {

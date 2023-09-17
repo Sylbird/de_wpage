@@ -1,9 +1,9 @@
 import { Props, RndResizeCallback } from 'react-rnd';
 import { useCallback } from 'react';
 import { DraggableEventHandler } from 'react-draggable';
-import useResizable from 'hooks/useResizable';
-import useDraggable from 'hooks/useDraggable';
-import rndDefaults from 'utils/rndDefaults';
+import useResizable from 'components/system/Window/RndWindow/useResizable';
+import useDraggable from 'components/system/Window/RndWindow/useDraggable';
+import rndDefaults from 'components/system/Window/RndWindow/defaults';
 import { useSession } from 'contexts/session';
 import { useProcesses } from 'contexts/process';
 

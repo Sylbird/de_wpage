@@ -1,5 +1,5 @@
 import { useProcesses } from 'contexts/process';
-import useFileInfo from 'hooks/useFileInfo';
+import useFileInfo from 'components/system/Files/FileEntry/useFileInfo';
 import StyledFileEntry from 'components/system/Files/FileEntry/StyledFileEntry';
 import { useCallback } from 'react';
 import Image from 'styles/custom/Image';

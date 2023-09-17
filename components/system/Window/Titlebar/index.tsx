@@ -7,7 +7,7 @@ import {
   MaximizeIcon,
   MinimizeIcon
 } from 'components/system/Window/Titlebar/TitlebarIcons';
-import useWindowsActions from 'hooks/useWindowActions';
+import useWindowsActions from 'components/system/Window/Titlebar/useWindowActions';
 
 type TitlebarProps = {
   id: string;

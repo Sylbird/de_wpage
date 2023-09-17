@@ -1,6 +1,6 @@
 import StyledClock from 'components/system/Taskbar/Clock/StyledClock';
 import useLocaleDateTime from 'components/system/Taskbar/Clock/useLocaleDateTime';
-import useClock from 'hooks/useClock';
+import useClock from 'components/system/Taskbar/Clock/useClock';
 
 const Clock = (): JSX.Element => {
   const now = useClock();

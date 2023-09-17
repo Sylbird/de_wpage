@@ -1,5 +1,5 @@
 import { Position } from 'react-rnd';
-import { Size } from 'hooks/useResizable';
+import { Size } from 'components/system/Window/RndWindow/useResizable';
 
 type WindowState = {
   position?: Position;

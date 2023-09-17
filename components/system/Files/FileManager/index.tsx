@@ -1,8 +1,8 @@
 import { basename, extname, resolve } from 'path';
 import FileEntry from 'components/system/Files/FileEntry';
 import StyledFileManager from 'components/system/Files/FileManager/StyledFileManager';
-import useFiles from 'hooks/useFiles';
-import useFileDrop from 'hooks/useFileDrop';
+import useFiles from 'components/system/Files/FileManager/useFiles';
+import useFileDrop from 'components/system/Files/FileManager/useFileDrop';
 
 type FileManagerProps = {
   directory: string;
