@@ -2,6 +2,7 @@ import { Props } from 'react-rnd';
 import { useEffect, useState } from 'react';
 import { DEFAULT_WINDOW_SIZE } from 'utils/constants';
 import { useTheme } from 'styled-components';
+import pxToNumber from 'utils/stringFunctions';
 
 export type Size = NonNullable<Props['size']>;
 
@@ -16,7 +17,6 @@ const useResizable = (
     sizes: { taskbar }
   } = useTheme();
   const [{ height, width }, setSize] = useState<Size>(size);
-  const pxToNumber = (value: string): number => Number(value.replace('px', ''));
 
   useEffect(() => {
     if (autoSizing) {

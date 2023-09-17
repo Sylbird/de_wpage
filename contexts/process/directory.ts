@@ -8,6 +8,13 @@ const processDirectory: Processes = {
     hasWindow: true,
     icon: '../favicon.ico',
     title: 'HelloWorld'
+  },
+  V86: {
+    autoSizing: true,
+    Component: dynamic(() => import('components/apps/V86')),
+    hasWindow: true,
+    icon: '/System/Icons/48x48/v86.ico',
+    title: 'v86'
   }
 };
 

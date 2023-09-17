@@ -43,6 +43,9 @@ const sizes = {
     height: 30,
     iconMarginRight: '8px',
     iconSize: '16px'
+  },
+  window: {
+    lineHeight: '14px'
   }
 };
 

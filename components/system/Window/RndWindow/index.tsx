@@ -26,8 +26,8 @@ const RndWindow: FC<RndWindowProps> = ({ children, id }) => {
       setWindowStates((currentWindowStates) => ({
         ...currentWindowStates,
         [id]: {
-          position: current?.props.position,
-          size: autoSizing ? DEFAULT_WINDOW_SIZE : current?.props.size
+          position: current?.props?.position,
+          size: autoSizing ? DEFAULT_WINDOW_SIZE : current?.props?.size
         }
       }));
   }, [autoSizing, id, setWindowStates]);
