@@ -1,14 +1,19 @@
 import { styled } from 'styled-components';
 
 const StyledFileEntry = styled.li`
-  border-radius: 5px;
+  border-radius: 3px;
   display: flex;
-  padding: 2px;
+
+  &:focus-within {
+    background-color: ${({ theme }) =>
+      theme.colors.fileEntry.backgroundFocused};
+  }
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.fileEntry.background};
     position: relative;
   }
+
   button {
     position: relative;
 

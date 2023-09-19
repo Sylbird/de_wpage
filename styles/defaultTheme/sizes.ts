@@ -7,13 +7,13 @@ const sizes = {
     width: '80px'
   },
   fileEntry: {
-    fontSize: '12px',
+    fontSize: '11.5px',
     iconSize: '48px'
   },
   fileManager: {
     columnGap: '1px',
     gridEntryHeight: '70px',
-    gridEntryWidth: '74px',
+    gridEntryWidth: '76px',
     padding: '5px 0',
     rowGap: '28px'
   },
