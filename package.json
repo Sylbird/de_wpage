@@ -12,6 +12,7 @@
     "dev": "next dev",
     "build": "yarn build:fs && next build",
     "build:fs": "cd public && node ../node_modules/browserfs/dist/scripts/make_http_index.js > .index/fs.bfs.json && node ../scripts/fs2json.js --exclude .index --out .index/fs.9p.json .",
+    "export": "next export",
     "start": "next start",
     "lint": "next lint",
     "stylelint": "stylelint --formatter=verbose **/*.ts*",
