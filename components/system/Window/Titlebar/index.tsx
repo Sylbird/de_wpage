@@ -4,6 +4,7 @@ import Image from 'styles/custom/Image';
 import StyledTitlebar from 'components/system/Window/Titlebar/StyledTitlebar';
 import {
   CloseIcon,
+  MaximizedIcon,
   MaximizeIcon,
   MinimizeIcon
 } from 'components/system/Window/Titlebar/TitlebarIcons';
@@ -16,7 +17,7 @@ type TitlebarProps = {
 const Titlebar = ({ id }: TitlebarProps): JSX.Element => {
   const {
     processes: {
-      [id]: { autoSizing, icon, title }
+      [id]: { autoSizing, icon, maximized, title }
     }
   } = useProcesses();
 
@@ -35,7 +36,7 @@ const Titlebar = ({ id }: TitlebarProps): JSX.Element => {
           <MinimizeIcon />
         </Button>
         <Button onClick={onMaximize} disabled={autoSizing}>
-          <MaximizeIcon />
+          {maximized ? <MaximizedIcon /> : <MaximizeIcon />}
         </Button>
         <Button onClick={onClose} className="close">
           <CloseIcon />
