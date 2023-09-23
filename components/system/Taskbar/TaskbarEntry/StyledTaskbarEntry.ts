@@ -14,16 +14,14 @@ const StyledTaskbarEntry = styled.li`
   }
 
   &::before {
-    //border-bottom: 3px solid #76b9ed; //Off: 3px #9f9a97 ON: 3px #76b9ed
     border-bottom: ${({ theme }) => `
-        ${theme.sizes.taskbar.entry.border.size} solid ${theme.colors.highlight}
+        ${theme.sizes.taskbar.entry.border.height} solid ${theme.colors.fileEntry.inactiveBar}
       `};
     border-radius: ${({ theme }) => theme.sizes.taskbar.entry.border.radius};
-    bottom: 0px;
+    bottom: 1px;
     content: '';
     position: absolute;
-    width: ${({ theme }) =>
-      theme.sizes.taskbar.entry.border.maxWidth}; //Off: 9px On: 18px
+    width: ${({ theme }) => theme.sizes.taskbar.entry.border.inactiveWidth};
   }
 
   border-radius: ${({ theme }) => theme.sizes.taskbar.entry.border.radius};

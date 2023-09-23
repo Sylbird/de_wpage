@@ -25,9 +25,10 @@ const sizes = {
     blur: '15px',
     entry: {
       border: {
-        maxWidth: '18px',
+        activeWidth: '18px',
+        inactiveWidth: '6px',
         radius: '5px',
-        size: '3px'
+        height: '3px'
       },
       iconSize: '30px',
       minWidth: '42px',

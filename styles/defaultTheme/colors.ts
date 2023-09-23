@@ -2,6 +2,7 @@ const colors = {
   fileEntry: {
     background: 'rgba(168, 180, 190, 0.20)',
     backgroundFocused: 'rgba(168, 180, 190, 0.35)',
+    activeBar: 'rgb(118, 185, 237)',
     textShadow: `
     0 0 1px rgba(0, 0, 0, 75%),
     0 0 2px rgba(0, 0, 0, 50%),
@@ -10,10 +11,10 @@ const colors = {
     0 1px 2px rgba(0, 0, 0, 50%),
 
     0 2px 1px rgba(0, 0, 0, 75%),
-    0 2px 2px rgba(0, 0, 0, 50%)`
+    0 2px 2px rgba(0, 0, 0, 50%)`,
+    inactiveBar: 'rgb(159, 154, 151)'
   },
-  highlight: '#76b9ed',
-  primary: '#0070f3',
+  primary: 'rgb(0, 112, 243)',
   taskbar: {
     background: 'rgba(32, 32, 32, 0.7)',
     hover: 'rgba(159, 154, 151,0.1)',

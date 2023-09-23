@@ -4,7 +4,7 @@ import Button from 'styles/custom/Button';
 const StyledStartButton = styled(Button)`
   &:active {
     svg {
-      transform: scale(0.75);
+      transform: scale(0.8);
     }
     background-color: ${({ theme }) =>
       theme.colors.taskbar.lowHover} !important;
