@@ -2,6 +2,10 @@ import { Size } from 'components/system/Window/RndWindow/useResizable';
 import { Position } from 'react-rnd';
 import type { ThemeName } from 'styles/themes';
 
+export const DEFAULT_LOCALE = 'en';
+
+export const DEFAULT_THEME: ThemeName = 'defaultTheme';
+
 export const DEFAULT_WINDOW_POSITION: Position = {
   x: 0,
   y: 0
@@ -24,9 +28,9 @@ export const PACKAGE_DATA = {
   version: '1.0.0'
 };
 
-export const DEFAULT_LOCALE = 'en';
+export const MILLISECONDS_IN_SECOND = 1000;
 
-export const DEFAULT_THEME: ThemeName = 'defaultTheme';
+export const SESSION_FILE = '/session.json';
 
 export const TIFF_IMAGE_FORMATS = ['.cr2', '.dng', '.nef', '.tif', '.tiff'];
 
@@ -53,5 +57,3 @@ export const IMAGE_FILE_EXTENSIONS = [
   '.webp',
   '.xbm'
 ];
-
-export const MILLISECONDS_IN_SECOND = 1000;
