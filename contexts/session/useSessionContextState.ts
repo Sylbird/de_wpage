@@ -6,6 +6,8 @@ import { SESSION_FILE } from 'utils/constants';
 const useSessionContextState = (): SessionContextState => {
   const { fs } = useFileSystem();
   const [sessionLoaded, setSessionLoaded] = useState(false);
+  const [foregroundId, setForegroundId] = useState('');
+  const [stackOrder, setStackOrder] = useState<string[]>([]);
   const [themeName, setThemeName] = useState('');
   const [windowStates, setWindowStates] = useState<WindowStates>({});
 
@@ -13,7 +15,7 @@ const useSessionContextState = (): SessionContextState => {
     if (sessionLoaded) {
       fs?.writeFile(SESSION_FILE, JSON.stringify({ themeName, windowStates }));
     }
-  }, [fs, sessionLoaded, themeName, windowStates]);
+  }, [fs, foregroundId, sessionLoaded, stackOrder, themeName, windowStates]);
 
   useEffect(
     () =>
@@ -30,6 +32,10 @@ const useSessionContextState = (): SessionContextState => {
   );
 
   return {
+    foregroundId,
+    setForegroundId,
+    setStackOrder,
+    stackOrder,
     themeName,
     windowStates,
     setThemeName,

@@ -1,4 +1,3 @@
-import { CSSProperties } from 'react';
 import { HandleStyles } from 'react-rnd';
 
 export const MIN_WINDOW_HEIGHT = 30;
@@ -59,10 +58,7 @@ const rndDefaults = {
       top: '-3px',
       width: '12px'
     }
-  } as HandleStyles,
-  style: {
-    zIndex: 1
-  } as CSSProperties
+  } as HandleStyles
 };
 
 export default rndDefaults;

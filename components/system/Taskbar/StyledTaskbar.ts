@@ -7,7 +7,7 @@ const StyledTaskbar = styled.nav`
   height: ${({ theme }) => theme.sizes.taskbar.height};
   position: absolute;
   width: 100vw;
-  z-index: 2;
+  z-index: 1000;
 `;
 
 export default StyledTaskbar;
