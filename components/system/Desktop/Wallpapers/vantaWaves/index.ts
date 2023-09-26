@@ -21,9 +21,7 @@ const vantaWaves: WallpaperEffect = (el) => {
         })
       : undefined;
 
-  return () => {
-    vantaEffect?.destroy?.();
-  };
+  return () => vantaEffect?.destroy?.();
 };
 
 export default vantaWaves;
