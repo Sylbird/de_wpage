@@ -16,14 +16,17 @@ export type V86 = {
   lockMouse: () => void;
 };
 
+type V86Image = {
+  async?: boolean;
+  size?: number;
+  url: string;
+  use_parts?: boolean;
+};
+
 type V86Config = typeof v86Config & {
   boot_order: number;
-  cdrom?: {
-    url?: string;
-  };
-  fda?: {
-    url?: string;
-  };
+  cdrom?: V86Image;
+  fda?: V86Image;
   memory_size: number;
   screen_container: HTMLDivElement | null;
   vga_memory_size: number;
