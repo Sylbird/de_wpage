@@ -16,7 +16,7 @@ const useWindowsActions = (id: string): WindowActions => {
   const onMinimize = useCallback(() => {
     minimize(id);
     setForegroundId(nextFocusable);
-  }, [id, minimize, nextFocusable]);
+  }, [id, minimize, setForegroundId, nextFocusable]);
   const onMaximize = useCallback(() => maximize(id), [id, maximize]);
   const onClose = useCallback(() => {
     setStackOrder((currentStackOrder) =>
@@ -24,7 +24,7 @@ const useWindowsActions = (id: string): WindowActions => {
     );
     close(id);
     setForegroundId(nextFocusable);
-  }, [id, close]);
+  }, [setStackOrder, id, close, setForegroundId, nextFocusable]);
 
   return { onClose, onMaximize, onMinimize };
 };

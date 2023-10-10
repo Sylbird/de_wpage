@@ -10,7 +10,7 @@ const StyledApp: FC = ({ children }) => {
     <>
       <SessionConsumer>
         {({ themeName }) => (
-          <ThemeProvider theme={themes[DEFAULT_THEME] || themes[DEFAULT_THEME]}>
+          <ThemeProvider theme={themes[themeName] || themes[DEFAULT_THEME]}>
             <GlobalStyle />
             {children}
           </ThemeProvider>

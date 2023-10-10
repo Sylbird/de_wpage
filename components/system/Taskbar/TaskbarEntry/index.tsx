@@ -19,7 +19,7 @@ const TaskbarEntry = ({ icon, id, title }: TaskbarEntryProps): JSX.Element => {
   const onClick = useCallback(() => {
     minimize(id);
     setForegroundId(nextFocusableId);
-  }, [id, minimize]);
+  }, [id, minimize, setForegroundId, nextFocusableId]);
 
   return (
     <StyledTaskbarEntry>
