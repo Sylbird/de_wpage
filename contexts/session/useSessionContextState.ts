@@ -1,6 +1,7 @@
 import { useFileSystem } from 'contexts/fileSystem';
 import type { SessionContextState, WindowStates } from 'contexts/session/types';
 import { useEffect, useState } from 'react';
+import { ThemeName } from 'styles/themes';
 import { SESSION_FILE } from 'utils/constants';
 
 const useSessionContextState = (): SessionContextState => {
@@ -8,7 +9,7 @@ const useSessionContextState = (): SessionContextState => {
   const [sessionLoaded, setSessionLoaded] = useState(false);
   const [foregroundId, setForegroundId] = useState('');
   const [stackOrder, setStackOrder] = useState<string[]>([]);
-  const [themeName, setThemeName] = useState('');
+  const [themeName, setThemeName] = useState<ThemeName>('defaultTheme');
   const [windowStates, setWindowStates] = useState<WindowStates>({});
 
   useEffect(() => {
