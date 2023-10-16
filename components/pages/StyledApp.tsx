@@ -4,7 +4,6 @@ import GlobalStyle from 'styles/GlobalStyle';
 import themes from 'styles/themes';
 import { DEFAULT_THEME } from 'utils/constants';
 
-//TODO: setup themeName on ThemeProvider
 const StyledApp: FC = ({ children }) => {
   return (
     <>
