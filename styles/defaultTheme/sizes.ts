@@ -7,7 +7,7 @@ const sizes = {
     width: '80px'
   },
   fileEntry: {
-    fontSize: '11.5px',
+    fontSize: '12px',
     iconSize: '48px'
   },
   fileManager: {

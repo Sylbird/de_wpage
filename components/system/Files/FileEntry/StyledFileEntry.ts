@@ -18,9 +18,17 @@ const StyledFileEntry = styled.li`
     position: relative;
 
     figure {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      word-break: break-word;
+
       figcaption {
-        font-size: ${({ theme }) => theme.sizes.fileEntry.fontSize};
         color: ${({ theme }) => theme.colors.text};
+        font-size: ${({ theme }) => theme.sizes.fileEntry.fontSize};
+        line-height: 1.2;
+        margin: 1px 0px;
+        padding: 2px 0px;
         text-shadow: ${({ theme }) => theme.colors.fileEntry.textShadow};
       }
 
