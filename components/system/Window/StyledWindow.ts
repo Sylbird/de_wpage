@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
 type StyledWindowProps = {
+  $maximized?: boolean;
   $minimized?: boolean;
 };
 
 const StyledWindow = styled.section<StyledWindowProps>`
-  background-color: ${({ theme }) => theme.colors.window.background};
+  border-radius: ${({ $maximized = false }) =>
+    $maximized ? '0px' : ({ theme }) => theme.sizes.window.border.radius};
   box-shadow: ${({ theme }) => theme.colors.window.shadow};
   display: ${({ $minimized = false }) => ($minimized ? 'none' : 'block')};
   height: 100%;

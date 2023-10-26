@@ -31,11 +31,13 @@ const rndDefaults = {
     },
     left: {
       cursor: 'ew-resize',
+      height: 'calc(100% - 2px)',
       left: '-3px',
       width: '6px'
     },
     right: {
       cursor: 'ew-resize',
+      height: 'calc(100% - 2px)',
       right: '-3px',
       width: '6px'
     },

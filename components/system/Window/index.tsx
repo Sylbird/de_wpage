@@ -1,3 +1,4 @@
+import Content from 'components/system/Window/Content';
 import RndWindow from 'components/system/Window/RndWindow';
 import StyledWindow from 'components/system/Window/StyledWindow';
 import Titlebar from 'components/system/Window/Titlebar';
@@ -9,17 +10,22 @@ import useFocusable from 'components/system/Window/useFocusable';
 const Window: FC<ProcessComponentProps> = ({ children, id }) => {
   const {
     processes: {
-      [id]: { minimized }
+      [id]: { maximized, minimized }
     }
   } = useProcesses();
   const windowRef = useRef<HTMLElement | null>(null);
   const { zIndex, ...focusableProps } = useFocusable(id, windowRef);
 
   return (
-    <RndWindow id={id} style={{ zIndex }}>
-      <StyledWindow $minimized={minimized} ref={windowRef} {...focusableProps}>
+    <RndWindow id={id} zIndex={zIndex}>
+      <StyledWindow
+        $maximized={maximized}
+        $minimized={minimized}
+        ref={windowRef}
+        {...focusableProps}
+      >
         <Titlebar id={id} />
-        {children}
+        <Content>{children}</Content>
       </StyledWindow>
     </RndWindow>
   );

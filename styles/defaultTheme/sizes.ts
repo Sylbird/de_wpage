@@ -1,8 +1,8 @@
 const sizes = {
-  border: {
-    radius: '5px'
-  },
   clock: {
+    border: {
+      radius: '5px'
+    },
     fontSize: '12px',
     width: '80px'
   },
@@ -46,6 +46,9 @@ const sizes = {
     iconSize: '16px'
   },
   window: {
+    border: {
+      radius: '6px'
+    },
     lineHeight: '14px'
   }
 };

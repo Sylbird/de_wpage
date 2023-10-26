@@ -2,23 +2,29 @@ import useRnd from 'components/system/Window/RndWindow/useRnd';
 import { useProcesses } from 'contexts/process';
 import { Rnd } from 'react-rnd';
 import { useSession } from 'contexts/session';
-import { CSSProperties, useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { DEFAULT_WINDOW_SIZE } from 'utils/constants';
 
 type RndWindowProps = {
-  children: React.ReactNode;
   id: string;
-  style: CSSProperties;
+  zIndex: number;
 };
 
-const RndWindow: FC<RndWindowProps> = ({ children, id, style }) => {
+const RndWindow: FC<RndWindowProps> = ({ children, id, zIndex }) => {
   const {
     processes: {
-      [id]: { autoSizing, maximized }
+      [id]: { autoSizing, maximized, minimized }
     }
   } = useProcesses();
   const rndRef = useRef<Rnd | null>(null);
   const rndProps = useRnd(id, maximized);
+  const style = useMemo<React.CSSProperties>(
+    () => ({
+      pointerEvents: minimized ? 'none' : undefined,
+      zIndex
+    }),
+    [minimized, zIndex]
+  );
   const { setWindowStates } = useSession();
 
   useEffect(() => {

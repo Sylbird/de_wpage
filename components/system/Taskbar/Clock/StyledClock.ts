@@ -10,7 +10,7 @@ const StyledClock = styled.div`
     background-color: ${({ theme }) => theme.colors.taskbar.hover};
   }
 
-  border-radius: ${({ theme }) => theme.sizes.border.radius};
+  border-radius: ${({ theme }) => theme.sizes.clock.border.radius};
   color: ${({ theme }) => theme.colors.text};
   display: flex;
   flex-direction: column;
