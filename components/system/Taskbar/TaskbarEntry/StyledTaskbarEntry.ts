@@ -1,6 +1,18 @@
 import styled from 'styled-components';
 
-const StyledTaskbarEntry = styled.li`
+type StyledTaskbarEntryProps = {
+  $foreground?: boolean;
+};
+
+const StyledTaskbarEntry = styled.li<StyledTaskbarEntryProps>`
+  background-color: ${({ $foreground, theme }) =>
+    $foreground ? theme.colors.taskbar.entry.active : ''};
+  border-radius: ${({ theme }) => theme.sizes.taskbar.entry.border.radius};
+  display: flex;
+  height: 100%;
+  min-width: ${({ theme }) => theme.sizes.taskbar.entry.minWidth};
+  place-content: center;
+
   &:active {
     img {
       transform: scale(0.75);
@@ -10,25 +22,32 @@ const StyledTaskbarEntry = styled.li`
   }
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.taskbar.hover};
+    background-color: ${({ $foreground, theme }) =>
+      $foreground
+        ? theme.colors.taskbar.activeHover
+        : theme.colors.taskbar.hover};
+    transition: 0.1s ease;
   }
 
   &::before {
-    border-bottom: ${({ theme }) => `
+    border-bottom: ${({ $foreground, theme }) =>
+      $foreground
+        ? `
+        ${theme.sizes.taskbar.entry.border.height} solid ${theme.colors.fileEntry.activeBar}
+      `
+        : `
         ${theme.sizes.taskbar.entry.border.height} solid ${theme.colors.fileEntry.inactiveBar}
       `};
     border-radius: ${({ theme }) => theme.sizes.taskbar.entry.border.radius};
     bottom: 1px;
     content: '';
     position: absolute;
-    width: ${({ theme }) => theme.sizes.taskbar.entry.border.inactiveWidth};
+    transition: 0.3s ease;
+    width: ${({ $foreground, theme }) =>
+      $foreground
+        ? theme.sizes.taskbar.entry.border.activeWidth
+        : theme.sizes.taskbar.entry.border.inactiveWidth};
   }
-
-  border-radius: ${({ theme }) => theme.sizes.taskbar.entry.border.radius};
-  display: flex;
-  height: 100%;
-  min-width: ${({ theme }) => theme.sizes.taskbar.entry.minWidth};
-  place-content: center;
 
   figure {
     align-items: center;

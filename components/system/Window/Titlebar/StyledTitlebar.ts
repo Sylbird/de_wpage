@@ -1,6 +1,10 @@
 import { styled } from 'styled-components';
 
-const StyledTitlebar = styled.header`
+type StyledTitlebarProps = {
+  $foreground: boolean;
+};
+
+const StyledTitlebar = styled.header<StyledTitlebarProps>`
   display: flex;
   height: ${({ theme }) => theme.sizes.titleBar.height}px;
 
@@ -10,7 +14,10 @@ const StyledTitlebar = styled.header`
 
   > h1 {
     display: flex;
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ $foreground, theme }) =>
+      $foreground
+        ? theme.colors.titleBar.text
+        : theme.colors.titleBar.textInactive};
     flex-grow: 1;
     font-size: ${({ theme }) => theme.sizes.titleBar.fontSize};
     font-weight: 400;
@@ -48,16 +55,18 @@ const StyledTitlebar = styled.header`
       width: ${({ theme }) => theme.sizes.titleBar.buttonWidth};
 
       &:hover {
-        background-color: ${({ theme }) => theme.colors.titlebar.hover};
-
+        background-color: ${({ theme }) => theme.colors.titleBar.hover};
+        svg {
+          fill: ${({ theme }) => theme.colors.titleBar.text};
+        }
         &.close {
-          background-color: ${({ theme }) => theme.colors.titlebar.closeHover};
+          background-color: ${({ theme }) => theme.colors.titleBar.closeHover};
         }
       }
 
       &:disabled {
         svg {
-          opacity: 0.2;
+          fill: ${({ theme }) => theme.colors.titleBar.buttonInactive};
         }
 
         &:hover {
@@ -66,7 +75,10 @@ const StyledTitlebar = styled.header`
       }
 
       svg {
-        fill: ${({ theme }) => theme.colors.text};
+        fill: ${({ $foreground, theme }) =>
+          $foreground
+            ? theme.colors.titleBar.text
+            : theme.colors.titleBar.buttonInactive};
         width: ${({ theme }) => theme.sizes.titleBar.buttonIconWidth};
       }
     }

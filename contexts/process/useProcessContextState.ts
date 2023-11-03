@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import type {
   ProcessContextState,
+  ProcessElements,
   Processes,
   ProcessesMap
 } from 'contexts/process/types';
@@ -8,7 +9,8 @@ import {
   closeProcess,
   maximizeProcess,
   minimizeProcess,
-  openProcess
+  openProcess,
+  setProcessElement
 } from 'contexts/process/function';
 
 const useProcessContextState = (): ProcessContextState => {
@@ -30,8 +32,21 @@ const useProcessContextState = (): ProcessContextState => {
     (id: string, url: string) => setProcesses(openProcess(id, url)),
     []
   );
+  const linkElement = useCallback(
+    (id: string, name: keyof ProcessElements, element: HTMLElement) =>
+      setProcesses(setProcessElement(id, name, element)),
+    []
+  );
 
-  return { close, open, mapProcesses, maximize, minimize, processes };
+  return {
+    close,
+    open,
+    mapProcesses,
+    maximize,
+    minimize,
+    processes,
+    linkElement
+  };
 };
 
 export default useProcessContextState;

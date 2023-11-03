@@ -1,6 +1,11 @@
 import type { ProcessComponentProps } from 'components/system/RenderProcess';
 
-export type Process = {
+export type ProcessElements = {
+  componentWindow?: HTMLElement;
+  taskbarEntry?: HTMLElement;
+};
+
+export type Process = ProcessElements & {
   autoSizing?: boolean;
   Component: React.ComponentType<ProcessComponentProps>;
   hasWindow?: boolean;
@@ -21,6 +26,11 @@ export type ProcessesMap = (
 
 export type ProcessContextState = {
   close: (id: string) => void;
+  linkElement: (
+    id: string,
+    name: keyof ProcessElements,
+    element: HTMLElement
+  ) => void;
   open: (id: string, url: string) => void;
   mapProcesses: ProcessesMap;
   maximize: (id: string) => void;

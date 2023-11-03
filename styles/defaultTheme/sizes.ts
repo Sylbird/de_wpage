@@ -30,12 +30,12 @@ const sizes = {
         radius: '5px',
         height: '3px'
       },
-      iconSize: '30px',
-      minWidth: '42px',
+      iconSize: '24px',
+      minWidth: '40px',
       maxWidth: '121px'
     },
     height: '48px',
-    margin: '6px'
+    margin: '8px'
   },
   titleBar: {
     buttonIconWidth: '10px',

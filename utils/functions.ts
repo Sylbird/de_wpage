@@ -5,6 +5,24 @@ export const bufferToUrl = (buffer: Buffer): string =>
 
 export const cleanUpBufferUrl = (url: string): void => URL.revokeObjectURL(url);
 
+export const haltEvent = (
+  event:
+    | Event
+    | React.DragEvent
+    | React.FocusEvent
+    | React.KeyboardEvent
+    | React.MouseEvent
+): void => {
+  try {
+    if (event.cancelable) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  } catch {
+    // Ignore failured to halt event
+  }
+};
+
 export const loadScript = (src: string): Promise<Event> =>
   new Promise((resolve, reject) => {
     const loadedScripts = [...document.scripts];

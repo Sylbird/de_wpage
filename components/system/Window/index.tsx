@@ -6,6 +6,7 @@ import { ProcessComponentProps } from 'components/system/RenderProcess';
 import { useProcesses } from 'contexts/process';
 import { useRef } from 'react';
 import useFocusable from 'components/system/Window/useFocusable';
+import { useSession } from 'contexts/session';
 
 const Window: FC<ProcessComponentProps> = ({ children, id }) => {
   const {
@@ -13,12 +14,15 @@ const Window: FC<ProcessComponentProps> = ({ children, id }) => {
       [id]: { maximized, minimized }
     }
   } = useProcesses();
+  const { foregroundId } = useSession();
+  const isForeground = id === foregroundId;
   const windowRef = useRef<HTMLElement | null>(null);
   const { zIndex, ...focusableProps } = useFocusable(id, windowRef);
 
   return (
     <RndWindow id={id} zIndex={zIndex}>
       <StyledWindow
+        $foreground={isForeground}
         $maximized={maximized}
         $minimized={minimized}
         ref={windowRef}

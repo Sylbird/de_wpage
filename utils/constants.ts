@@ -16,6 +16,8 @@ export const DEFAULT_WINDOW_SIZE: Size = {
   width: '350px'
 };
 
+export const FOCUSABLE_ELEMENT = { tabIndex: -1 };
+
 export const PACKAGE_DATA = {
   alias: 'de_wpage',
   author: {
@@ -27,6 +29,8 @@ export const PACKAGE_DATA = {
   license: 'MIT, ISC',
   version: '1.0.0'
 };
+
+export const PREVENT_SCROLL = { preventScroll: true };
 
 export const MILLISECONDS_IN_SECOND = 1000;
 

@@ -1,5 +1,5 @@
 import processDirectory from 'contexts/process/directory';
-import { Processes } from 'contexts/process/types';
+import { Process, ProcessElements, Processes } from 'contexts/process/types';
 
 export const closeProcess =
   (processId: string) =>
@@ -38,10 +38,30 @@ export const toggleProcessSetting =
 
 export const maximizeProcess =
   (processId: string) =>
-  (processes: Processes): Processes =>
-    toggleProcessSetting(processId, 'maximized')(processes);
+  (currentProcesses: Processes): Processes =>
+    toggleProcessSetting(processId, 'maximized')(currentProcesses);
 
 export const minimizeProcess =
   (processId: string) =>
-  (processes: Processes): Processes =>
-    toggleProcessSetting(processId, 'minimized')(processes);
+  (currentProcesses: Processes): Processes =>
+    toggleProcessSetting(processId, 'minimized')(currentProcesses);
+
+const setProcessSettings =
+  (processId: string, settings: Partial<Process>) =>
+  (currentProcesses: Processes): Processes => {
+    const { ...newProcesses } = currentProcesses;
+
+    if (newProcesses[processId]) {
+      newProcesses[processId] = {
+        ...newProcesses[processId],
+        ...settings
+      };
+    }
+
+    return newProcesses;
+  };
+
+export const setProcessElement =
+  (processId: string, name: keyof ProcessElements, element: HTMLElement) =>
+  (currentProcesses: Processes): Processes =>
+    setProcessSettings(processId, { [name]: element })(currentProcesses);

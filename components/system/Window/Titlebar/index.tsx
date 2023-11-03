@@ -9,6 +9,8 @@ import {
   MinimizeIcon
 } from 'components/system/Window/Titlebar/TitlebarIcons';
 import useWindowsActions from 'components/system/Window/Titlebar/useWindowActions';
+import rndDefaults from 'components/system/Window/RndWindow/defaults';
+import { useSession } from 'contexts/session';
 
 type TitlebarProps = {
   id: string;
@@ -20,11 +22,16 @@ const Titlebar = ({ id }: TitlebarProps): JSX.Element => {
       [id]: { autoSizing, icon, maximized, title }
     }
   } = useProcesses();
+  const { foregroundId } = useSession();
+  const isForeground = id === foregroundId;
 
   const { onClose, onMaximize, onMinimize } = useWindowsActions(id);
 
   return (
-    <StyledTitlebar className="handle acrylic">
+    <StyledTitlebar
+      $foreground={isForeground}
+      className={rndDefaults.dragHandleClassName + ' acrylic'}
+    >
       <h1>
         <figure>
           <Image src={icon} alt={title} />
