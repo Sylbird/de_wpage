@@ -2,6 +2,12 @@ import dynamic from 'next/dynamic';
 import type { Processes } from 'contexts/process/types';
 
 const processDirectory: Processes = {
+  FileExplorer: {
+    Component: dynamic(() => import('components/apps/FileExplorer')),
+    hasWindow: true,
+    icon: '/System/Icons/48x48/explorer.png',
+    title: 'FileExplorer'
+  },
   HelloWorld: {
     autoSizing: false,
     Component: dynamic(() => import('components/apps/HelloWorld')),
