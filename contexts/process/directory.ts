@@ -20,14 +20,14 @@ const processDirectory: Processes = {
     Component: dynamic(() => import('components/apps/JSDOS')),
     hasWindow: true,
     icon: '/System/Icons/48x48/JSDOS.ico',
-    title: 'JS-DOS'
+    title: 'js-dos v7'
   },
   V86: {
     autoSizing: true,
     Component: dynamic(() => import('components/apps/V86')),
     hasWindow: true,
     icon: '/System/Icons/48x48/v86.ico',
-    title: 'v86'
+    title: 'Virtual x86'
   }
 };
 

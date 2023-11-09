@@ -36,4 +36,5 @@ export type ProcessContextState = {
   maximize: (id: string) => void;
   minimize: (id: string) => void;
   processes: Processes;
+  title: (id: string, newTitle: string) => void;
 };

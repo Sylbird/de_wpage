@@ -10,7 +10,8 @@ import {
   maximizeProcess,
   minimizeProcess,
   openProcess,
-  setProcessElement
+  setProcessElement,
+  setTitle
 } from 'contexts/process/function';
 
 const useProcessContextState = (): ProcessContextState => {
@@ -38,6 +39,11 @@ const useProcessContextState = (): ProcessContextState => {
     []
   );
 
+  const title = useCallback(
+    (id: string, newTitle: string) => setProcesses(setTitle(id, newTitle)),
+    []
+  );
+
   return {
     close,
     open,
@@ -45,7 +51,8 @@ const useProcessContextState = (): ProcessContextState => {
     maximize,
     minimize,
     processes,
-    linkElement
+    linkElement,
+    title
   };
 };
 

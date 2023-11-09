@@ -32,6 +32,8 @@ export const PACKAGE_DATA = {
 
 export const PREVENT_SCROLL = { preventScroll: true };
 
+export const PROCESS_DELIMITER = '__';
+
 export const MILLISECONDS_IN_SECOND = 1000;
 
 export const SESSION_FILE = '/session.json';
