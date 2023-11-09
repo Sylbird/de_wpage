@@ -25,14 +25,13 @@ const useJSDOS = (
 
             if (DosWindow.emulators) {
               DosWindow.emulators.pathPrefix = '/libs/jsdos/';
+              DosWindow.Dos(screenRef.current as HTMLDivElement)
+                .run(objectURL)
+                .then((ci) => {
+                  appendFileToTitle(url), cleanUpBufferUrl(objectURL);
+                  setDos(ci);
+                });
             }
-
-            DosWindow.Dos(screenRef.current as HTMLDivElement)
-              .run(objectURL)
-              .then((ci) => {
-                appendFileToTitle(url), cleanUpBufferUrl(objectURL);
-                setDos(ci);
-              });
           }
         )
       );
