@@ -27,52 +27,50 @@ const useFileInfo = (path: string): FileInfo => {
     if (fs) {
       const extension = extname(path).toLowerCase();
 
-      if (!extension) {
-        fs.stat(path, (_error, stats) => {
-          const isDirectory = stats ? stats.isDirectory() : false;
+      fs.stat(path, (_error, stats) => {
+        const isDirectory = stats ? stats.isDirectory() : false;
 
+        if (isDirectory) {
           setInfo({
-            icon: `System/Icons/${
-              isDirectory ? 'emptyFolder.png' : 'unknown.png'
-            }`,
-            pid: isDirectory ? 'FileExplorer' : '',
+            icon: 'System/Icons/emptyFolder.png',
+            pid: 'FileExplorer',
             url: path
           });
-        });
-      } else {
-        const getInfoByFileExtension = (icon?: string) =>
-          setInfo({
-            icon: icon || getIconByFileExtension(extension),
-            pid: getProcessByFileExtension(extension),
-            url: path
-          });
-
-        if (extension === '.url') {
-          fs.readFile(path, (error, contents = Buffer.from('')) => {
-            if (error) {
-              getInfoByFileExtension();
-            } else {
-              const {
-                InternetShortcut: {
-                  BaseURL: pid = '',
-                  IconFile: icon = '',
-                  URL: url = ''
-                }
-              } = ini.parse(contents.toString());
-
-              setInfo({ icon, pid, url });
-            }
-          });
-        } else if (IMAGE_FILE_EXTENSIONS.includes(extension)) {
-          fs.readFile(path, (error, contents = Buffer.from('')) =>
-            getInfoByFileExtension(
-              error ? 'System/Icons/picture.png' : bufferToUrl(contents)
-            )
-          );
         } else {
-          getInfoByFileExtension();
+          const getInfoByFileExtension = (icon?: string) =>
+            setInfo({
+              icon: icon || getIconByFileExtension(extension),
+              pid: getProcessByFileExtension(extension),
+              url: path
+            });
+
+          if (extension === '.url') {
+            fs.readFile(path, (error, contents = Buffer.from('')) => {
+              if (error) {
+                getInfoByFileExtension();
+              } else {
+                const {
+                  InternetShortcut: {
+                    BaseURL: pid = '',
+                    IconFile: icon = '',
+                    URL: url = ''
+                  }
+                } = ini.parse(contents.toString());
+
+                setInfo({ icon, pid, url });
+              }
+            });
+          } else if (IMAGE_FILE_EXTENSIONS.includes(extension)) {
+            fs.readFile(path, (error, contents = Buffer.from('')) =>
+              getInfoByFileExtension(
+                error ? 'System/Icons/picture.png' : bufferToUrl(contents)
+              )
+            );
+          } else {
+            getInfoByFileExtension();
+          }
         }
-      }
+      });
     }
   }, [fs, path]);
 
