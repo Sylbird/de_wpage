@@ -13,3 +13,5 @@ export const config = {
   vga_bios: { url: '/Program Files/Virtual x86/bios/vgabios.bin' },
   wasm_path: '/Program Files/Virtual x86/v86.wasm'
 };
+
+export const libs = ['/Program Files/Virtual x86/libv86.js'];
