@@ -32,7 +32,7 @@ const useFileInfo = (path: string): FileInfo => {
           const isDirectory = stats ? stats.isDirectory() : false;
 
           setInfo({
-            icon: `System/Icons/48x48/${
+            icon: `System/Icons/${
               isDirectory ? 'emptyFolder.png' : 'unknown.png'
             }`,
             pid: isDirectory ? 'FileExplorer' : '',
@@ -66,7 +66,7 @@ const useFileInfo = (path: string): FileInfo => {
         } else if (IMAGE_FILE_EXTENSIONS.includes(extension)) {
           fs.readFile(path, (error, contents = Buffer.from('')) =>
             getInfoByFileExtension(
-              error ? 'System/Icons/48x48/picture.png' : bufferToUrl(contents)
+              error ? 'System/Icons/picture.png' : bufferToUrl(contents)
             )
           );
         } else {

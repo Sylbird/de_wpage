@@ -2,9 +2,9 @@ export const getIconByFileExtension = (extension: string): string => {
   switch (extension) {
     case '.img':
     case '.iso':
-      return '/System/Icons/48x48/image.png';
+      return '/System/Icons/iso.png';
     default:
-      return '/System/Icons/48x48/unknown.png';
+      return '/System/Icons/unknown.png';
   }
 };
 export const getProcessByFileExtension = (extension: string): string => {

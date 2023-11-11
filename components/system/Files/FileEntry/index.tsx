@@ -1,7 +1,7 @@
 import { useProcesses } from 'contexts/process';
 import useFileInfo from 'components/system/Files/FileEntry/useFileInfo';
 import { useCallback } from 'react';
-import Image from 'styles/custom/Image';
+import Icon from 'styles/custom/Icon';
 import Button from 'styles/custom/Button';
 import useDoubleClick from 'hooks/useDoubleClick';
 import { useSession } from 'contexts/session';
@@ -30,7 +30,7 @@ const FileEntry = ({ name, path }: FileEntryProps): JSX.Element => {
   return (
     <Button onClick={useDoubleClick(onClick)}>
       <figure>
-        <Image src={icon} alt={name} />
+        <Icon src={icon} alt={name} $imgSize={48} />
         <figcaption>{name}</figcaption>
       </figure>
     </Button>
