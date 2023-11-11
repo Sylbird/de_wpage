@@ -64,6 +64,13 @@ const StyledTitlebar = styled.header<StyledTitlebarProps>`
         }
       }
 
+      &:active {
+        background-color: rgba(159, 154, 151, 0.3);
+        &.close {
+          background-color: rgba(139, 10, 20, 1);
+        }
+      }
+
       &:disabled {
         svg {
           fill: ${({ theme }) => theme.colors.titleBar.buttonInactive};
