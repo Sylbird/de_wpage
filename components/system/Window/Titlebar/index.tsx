@@ -11,6 +11,7 @@ import {
 import useWindowsActions from 'components/system/Window/Titlebar/useWindowActions';
 import rndDefaults from 'components/system/Window/RndWindow/defaults';
 import { useSession } from 'contexts/session';
+import useDoubleClick from 'hooks/useDoubleClick';
 
 type TitlebarProps = {
   id: string;
@@ -32,12 +33,14 @@ const Titlebar = ({ id }: TitlebarProps): JSX.Element => {
       $foreground={isForeground}
       className={rndDefaults.dragHandleClassName + ' acrylic'}
     >
-      <h1>
+      <Button
+        onClick={useDoubleClick(autoSizing ? () => undefined : onMaximize)}
+      >
         <figure>
           <Icon src={icon} alt={title} $imgSize={16} />
           <figcaption>{title}</figcaption>
         </figure>
-      </h1>
+      </Button>
       <nav className="cancel">
         <Button onClick={onMinimize}>
           <MinimizeIcon />

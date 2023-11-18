@@ -5,6 +5,9 @@ type StyledTitlebarProps = {
 };
 
 const StyledTitlebar = styled.header<StyledTitlebarProps>`
+  background-color: ${({ $foreground, theme }) =>
+    $foreground ? '' : theme.colors.titleBar.backgroundInactive};
+  transition: background-color 0.15s ease-in-out;
   display: flex;
   height: ${({ theme }) => theme.sizes.titleBar.height}px;
 
@@ -12,7 +15,12 @@ const StyledTitlebar = styled.header<StyledTitlebarProps>`
     z-index: 0;
   }
 
-  > h1 {
+  &::before {
+    background-image: ${({ $foreground }) => ($foreground ? '' : 'unset')};
+  }
+
+  > button {
+    align-items: center;
     display: flex;
     color: ${({ $foreground, theme }) =>
       $foreground

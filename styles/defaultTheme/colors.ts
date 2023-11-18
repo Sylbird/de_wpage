@@ -26,6 +26,7 @@ const colors = {
   },
   text: 'rgba(255, 255, 255, 0.9)',
   titleBar: {
+    backgroundInactive: 'rgba(32, 32, 32, 1)',
     buttonInactive: 'rgb(128, 128, 128)',
     closeHover: 'rgba(200, 15, 30, 1)',
     hover: 'rgba(159, 154, 151,0.1)',
