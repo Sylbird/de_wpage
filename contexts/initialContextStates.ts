@@ -20,7 +20,7 @@ export const initialProcessContextState: ProcessContextState = {
 export const initialSessionContextState: SessionContextState = {
   foregroundId: '',
   setForegroundId: () => undefined,
-  stackOrder: [''],
+  stackOrder: [],
   setStackOrder: () => undefined,
   themeName: 'defaultTheme',
   windowStates: {},
