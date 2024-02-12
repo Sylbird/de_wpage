@@ -27,25 +27,19 @@ export const openProcess =
         };
   };
 
-export const toggleProcessSetting =
-  (processId: string, setting: 'maximized' | 'minimized') =>
-  (currentProcesses: Processes): Processes => {
-    const { ...newProcesses } = currentProcesses;
-
-    newProcesses[processId][setting] = !newProcesses[processId][setting];
-
-    return newProcesses;
-  };
-
 export const maximizeProcess =
   (processId: string) =>
   (currentProcesses: Processes): Processes =>
-    toggleProcessSetting(processId, 'maximized')(currentProcesses);
+    setProcessSettings(processId, {
+      maximized: !currentProcesses[processId].maximized
+    })(currentProcesses);
 
 export const minimizeProcess =
   (processId: string) =>
   (currentProcesses: Processes): Processes =>
-    toggleProcessSetting(processId, 'minimized')(currentProcesses);
+    setProcessSettings(processId, {
+      minimized: !currentProcesses[processId].minimized
+    })(currentProcesses);
 
 const setProcessSettings =
   (processId: string, settings: Partial<Process>) =>
