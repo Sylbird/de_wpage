@@ -36,6 +36,11 @@ export const PROCESS_DELIMITER = '__';
 
 export const MILLISECONDS_IN_SECOND = 1000;
 
+export const ONE_TIME_PASSIVE_EVENT = {
+  once: true,
+  passive: true
+} as AddEventListenerOptions;
+
 export const SESSION_FILE = '/session.json';
 
 export const TIFF_IMAGE_FORMATS = ['.cr2', '.dng', '.nef', '.tif', '.tiff'];

@@ -1,4 +1,5 @@
 import { extname } from 'path';
+import { ONE_TIME_PASSIVE_EVENT } from 'utils/constants';
 
 export const bufferToUrl = (buffer: Buffer): string =>
   URL.createObjectURL(new Blob([new Uint8Array(buffer)]));
@@ -23,53 +24,81 @@ export const haltEvent = (
   }
 };
 
-export const loadScript = (src: string): Promise<Event> =>
+const loadScript = (
+  src: string,
+  defer?: boolean,
+  force?: boolean,
+  asModule?: boolean
+): Promise<Event> =>
   new Promise((resolve, reject) => {
     const loadedScripts = [...document.scripts];
+    const currentScript = loadedScripts.find((loadedScript) =>
+      loadedScript.src.endsWith(src)
+    );
 
-    if (loadedScripts.find((script) => script.src.endsWith(src))) {
-      resolve(new Event('Already Loaded.'));
-    } else {
-      const script = document.createElement('script');
+    if (currentScript) {
+      if (!force) {
+        resolve(new Event('Already loaded.'));
+        return;
+      }
 
-      script.async = false;
-      script.src = src;
-      script.onerror = (event) => reject(event);
-      script.onload = (event) => resolve(event);
-
-      document.head.appendChild(script);
+      currentScript.remove();
     }
+
+    const script = document.createElement(
+      'script'
+    ) as HTMLElementWithPriority<HTMLScriptElement>;
+
+    script.async = false;
+    if (defer) script.defer = true;
+    if (asModule) script.type = 'module';
+    script.fetchPriority = 'high';
+    script.src = src;
+    script.addEventListener('error', reject, ONE_TIME_PASSIVE_EVENT);
+    script.addEventListener('load', resolve, ONE_TIME_PASSIVE_EVENT);
+
+    document.head.append(script);
   });
 
-export const loadStyle = (href: string): Promise<Event> =>
+const loadStyle = (href: string): Promise<Event> =>
   new Promise((resolve, reject) => {
-    const loadedLinks = [...document.getElementsByTagName('link')];
+    const loadedStyles = [
+      ...document.querySelectorAll('link[rel=stylesheet]')
+    ] as HTMLLinkElement[];
 
-    if (loadedLinks.find((link) => link.href.endsWith(href))) {
-      resolve(new Event('Already Loaded.'));
-    } else {
-      const link = document.createElement('link');
-
-      link.rel = 'stylesheet';
-      link.href = href;
-      link.onerror = (event) => reject(event);
-      link.onload = (event) => resolve(event);
-
-      document.head.appendChild(link);
+    if (loadedStyles.some((loadedStyle) => loadedStyle.href.endsWith(href))) {
+      resolve(new Event('Already loaded.'));
+      return;
     }
+
+    const link = document.createElement(
+      'link'
+    ) as HTMLElementWithPriority<HTMLLinkElement>;
+
+    link.rel = 'stylesheet';
+    link.fetchPriority = 'high';
+    link.href = href;
+    link.addEventListener('error', reject, ONE_TIME_PASSIVE_EVENT);
+    link.addEventListener('load', resolve, ONE_TIME_PASSIVE_EVENT);
+
+    document.head.append(link);
   });
 
-export const loadFiles = async (files: string[]): Promise<Event[]> =>
-  Promise.all(
-    files.reduce((filesToLoad: Promise<Event>[], file) => {
-      const ext = extname(file).toLowerCase();
+export const getExtension = (url: string): string => extname(url).toLowerCase();
 
-      if (ext === '.css') filesToLoad.push(loadStyle(file));
-      else if (ext === '.js') filesToLoad.push(loadScript(file));
-
-      return filesToLoad;
-    }, [])
-  );
+export const loadFiles = async (
+  files?: string[],
+  defer?: boolean,
+  force?: boolean,
+  asModule?: boolean
+): Promise<void> =>
+  !files || files.length === 0
+    ? Promise.resolve()
+    : files.reduce(async (_promise, file) => {
+        await (getExtension(file) === '.css'
+          ? loadStyle(encodeURI(file))
+          : loadScript(encodeURI(file), defer, force, asModule));
+      }, Promise.resolve());
 
 export const pxToNumber = (value: string): number =>
   Number(value.replace('px', ''));
