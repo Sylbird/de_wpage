@@ -2,8 +2,7 @@ import { useCallback, useState } from 'react';
 import type {
   ProcessContextState,
   ProcessElements,
-  Processes,
-  ProcessesMap
+  Processes
 } from 'contexts/process/types';
 import {
   closeProcess,
@@ -16,10 +15,7 @@ import {
 
 const useProcessContextState = (): ProcessContextState => {
   const [processes, setProcesses] = useState<Processes>({});
-  const mapProcesses = useCallback<ProcessesMap>(
-    (callback) => Object.entries(processes).map(callback),
-    [processes]
-  );
+
   const close = useCallback((id: string) => setProcesses(closeProcess(id)), []);
   const maximize = useCallback(
     (id: string) => setProcesses(maximizeProcess(id)),
@@ -47,7 +43,6 @@ const useProcessContextState = (): ProcessContextState => {
   return {
     close,
     open,
-    mapProcesses,
     maximize,
     minimize,
     processes,

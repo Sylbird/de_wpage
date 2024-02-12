@@ -20,10 +20,6 @@ export type Processes = {
   [id: string]: Process;
 };
 
-export type ProcessesMap = (
-  callback: ([id, process]: [string, Process]) => JSX.Element
-) => JSX.Element[];
-
 export type ProcessContextState = {
   close: (id: string) => void;
   linkElement: (
@@ -32,7 +28,6 @@ export type ProcessContextState = {
     element: HTMLElement
   ) => void;
   open: (id: string, url: string) => void;
-  mapProcesses: ProcessesMap;
   maximize: (id: string) => void;
   minimize: (id: string) => void;
   processes: Processes;
