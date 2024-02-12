@@ -1,27 +1,32 @@
-import WAVES from 'public/System/Vanta.js/vanta.waves.min';
-import type { WallpaperEffect } from 'styles/defaultTheme/wallpaper';
-/* @ts-expect-error Not a module*/
-import * as THREE from 'public/System/Vanta.js/three.min';
-import {
-  VantaWavesConfig,
-  disableControls
-} from 'components/system/Desktop/Wallpapers/vantaWaves/config';
+import { config } from 'components/system/Desktop/Wallpapers/vantaWaves/config';
+import { loadFiles } from 'utils/functions';
 
-const hasWebGL = typeof WebGLRenderingContext !== 'undefined';
+const libs = [
+  '/System/Vanta.js/three.min.js',
+  '/System/Vanta.js/vanta.waves.min.js'
+];
 
-const vantaWaves: WallpaperEffect = (el) => {
-  const vantaEffect =
-    el && hasWebGL
-      ? /* @ts-expect-error Expression is not callable*/
-        WAVES({
-          el,
-          THREE,
-          ...disableControls,
-          ...VantaWavesConfig
-        })
-      : undefined;
+const vantaWaves = (el: HTMLElement | null) => {
+  const { VANTA: { current: currentEffect } = {} } = window;
 
-  return () => vantaEffect?.destroy?.();
+  try {
+    currentEffect?.destroy();
+  } catch {
+    // Failed to destroy previous effect
+  }
+
+  if (!el || typeof WebGLRenderingContext === 'undefined') return;
+
+  loadFiles(libs, true).then(() => {
+    const { VANTA: { WAVES } = {} } = window;
+
+    if (WAVES) {
+      WAVES({
+        el,
+        ...config
+      });
+    }
+  });
 };
 
 export default vantaWaves;
