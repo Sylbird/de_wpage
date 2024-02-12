@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 const StyledFileEntry = styled.li`
   border-radius: 3px;
   display: flex;
+  height: min-content;
 
   &:focus-within {
     background-color: ${({ theme }) =>
@@ -12,6 +13,13 @@ const StyledFileEntry = styled.li`
   &:hover {
     background-color: ${({ theme }) => theme.colors.fileEntry.background};
     position: relative;
+  }
+
+  &:focus-within {
+    figcaption {
+      -webkit-line-clamp: initial;
+      z-index: 1;
+    }
   }
 
   button {
@@ -30,6 +38,11 @@ const StyledFileEntry = styled.li`
         margin: 1px 0px;
         padding: 2px 0px;
         text-shadow: ${({ theme }) => theme.colors.fileEntry.textShadow};
+        //
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
       }
 
       img {
