@@ -100,5 +100,5 @@ export const loadFiles = async (
           : loadScript(encodeURI(file), defer, force, asModule));
       }, Promise.resolve());
 
-export const pxToNumber = (value: string): number =>
-  Number(value.replace('px', ''));
+export const pxToNumber = (value: number | string = 0): number =>
+  typeof value === 'number' ? value : Number.parseFloat(value);
