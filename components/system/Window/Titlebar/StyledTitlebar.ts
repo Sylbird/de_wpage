@@ -46,6 +46,7 @@ const StyledTitlebar = styled.header<StyledTitlebarProps>`
       figcaption {
         overflow: hidden;
         text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
   }
