@@ -1,11 +1,27 @@
-import { Props, RndResizeCallback } from 'react-rnd';
+import { Position, Props, RndResizeCallback } from 'react-rnd';
 import { useCallback } from 'react';
 import { DraggableEventHandler } from 'react-draggable';
-import useResizable from 'components/system/Window/RndWindow/useResizable';
+import useResizable, {
+  Size
+} from 'components/system/Window/RndWindow/useResizable';
 import useDraggable from 'components/system/Window/RndWindow/useDraggable';
 import rndDefaults from 'components/system/Window/RndWindow/defaults';
 import { useSession } from 'contexts/session';
 import { useProcesses } from 'contexts/process';
+import { pxToNumber } from 'utils/functions';
+import { useTheme } from 'styled-components';
+
+const centerPosition = (
+  { height, width }: Size,
+  taskbarHeight: string
+): Position => {
+  const { innerHeight: vh, innerWidth: vw } = window;
+
+  return {
+    x: Math.floor(vw / 2 - pxToNumber(width) / 2),
+    y: Math.floor((vh - pxToNumber(taskbarHeight)) / 2 - pxToNumber(height) / 2)
+  };
+};
 
 const useRnd = (id: string, maximized = false): Props => {
   const {
@@ -16,8 +32,16 @@ const useRnd = (id: string, maximized = false): Props => {
   const { windowStates: { [id]: windowState } = {}, setWindowStates } =
     useSession();
   const { position: statePosition, size: stateSize } = windowState || {};
-  const [position, setPosition] = useDraggable(maximized, statePosition);
   const [size, setSize] = useResizable(maximized, autoSizing, stateSize);
+  const {
+    sizes: {
+      taskbar: { height: taskbarHeight }
+    }
+  } = useTheme();
+  const [position, setPosition] = useDraggable(
+    maximized,
+    statePosition || centerPosition(size, taskbarHeight)
+  );
 
   const onDragStop = useCallback<DraggableEventHandler>(
     (_event, { x, y }) => {
