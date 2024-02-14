@@ -13,6 +13,7 @@ const processDirectory: Processes = {
     Component: dynamic(() => import('components/apps/JSDOS')),
     hasWindow: true,
     icon: '/System/Icons/JSDOS.png',
+    lockAspectRatio: true,
     title: 'js-dos v7'
   },
   V86: {

@@ -10,6 +10,7 @@ export type Process = ProcessElements & {
   Component: React.ComponentType<ProcessComponentProps>;
   hasWindow?: boolean;
   icon: string;
+  lockAspectRatio?: boolean;
   maximized?: boolean;
   minimized?: boolean;
   title: string;

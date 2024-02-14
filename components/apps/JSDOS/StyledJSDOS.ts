@@ -6,9 +6,7 @@ const StyledJSDOS = styled.div`
   width: 100%;
 
   canvas {
-    height: 100%;
     image-rendering: pixelated;
-    width: 100%;
   }
 
   div {

@@ -26,7 +26,7 @@ const centerPosition = (
 const useRnd = (id: string, maximized = false): Props => {
   const {
     processes: {
-      [id]: { autoSizing }
+      [id]: { autoSizing, lockAspectRatio }
     }
   } = useProcesses();
   const { windowStates: { [id]: windowState } = {}, setWindowStates } =
@@ -78,7 +78,9 @@ const useRnd = (id: string, maximized = false): Props => {
   );
 
   return {
-    enableResizing: !maximized && !autoSizing,
+    enableResizing:
+      !maximized && (!autoSizing || (autoSizing && lockAspectRatio === true)),
+    lockAspectRatio,
     onDragStop,
     onResizeStop,
     position,
