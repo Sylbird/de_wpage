@@ -91,14 +91,16 @@ export const loadFiles = async (
   defer?: boolean,
   force?: boolean,
   asModule?: boolean
-): Promise<void> =>
+): Promise<void | Event[]> =>
   !files || files.length === 0
     ? Promise.resolve()
-    : files.reduce(async (_promise, file) => {
-        await (getExtension(file) === '.css'
-          ? loadStyle(encodeURI(file))
-          : loadScript(encodeURI(file), defer, force, asModule));
-      }, Promise.resolve());
+    : Promise.all(
+        files.map(async (file) => {
+          return getExtension(file) === '.css'
+            ? loadStyle(encodeURI(file))
+            : loadScript(encodeURI(file), defer, force, asModule);
+        })
+      );
 
 export const pxToNumber = (value: number | string = 0): number =>
   typeof value === 'number' ? value : Number.parseFloat(value);
