@@ -7,7 +7,11 @@ const StyledV86 = styled.div`
   }
 
   div {
+    background-color: rgb(0, 0, 0);
     white-space: pre;
+    span {
+      background-color: unset !important;
+    }
   }
 `;
 
