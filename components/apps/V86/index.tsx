@@ -7,11 +7,10 @@ import useV86 from 'components/apps/V86/useV86';
 
 const V86 = ({ id }: ProcessComponentProps): JSX.Element => {
   const {
-    processes: {
-      [id]: { url = '' }
-    }
+    processes: { [id]: process }
   } = useProcesses();
 
+  const { url = '' } = process || {};
   const screenRef = useRef<HTMLDivElement | null>(null);
   const { emulator, lockMouse } = useV86(id, url, screenRef);
   const txtStyle = useV86ScreenSize(id, emulator);

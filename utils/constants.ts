@@ -45,6 +45,8 @@ export const SESSION_FILE = '/session.json';
 
 export const TIFF_IMAGE_FORMATS = ['.cr2', '.dng', '.nef', '.tif', '.tiff'];
 
+export const TRANSITION_IN_SECONDS = 0.2;
+
 export const IMAGE_FILE_EXTENSIONS = [
   ...TIFF_IMAGE_FORMATS,
   '.ani',

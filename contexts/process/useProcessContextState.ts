@@ -16,7 +16,10 @@ import {
 const useProcessContextState = (): ProcessContextState => {
   const [processes, setProcesses] = useState<Processes>({});
 
-  const close = useCallback((id: string) => setProcesses(closeProcess(id)), []);
+  const close = useCallback(
+    (id: string, closing?: boolean) => setProcesses(closeProcess(id, closing)),
+    []
+  );
   const maximize = useCallback(
     (id: string) => setProcesses(maximizeProcess(id)),
     []

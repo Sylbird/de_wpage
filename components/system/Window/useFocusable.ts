@@ -18,10 +18,9 @@ const useFocusable = (
   const zIndex = stackOrder.length - stackOrder.indexOf(id) + 1;
   const isForeground = id === foregroundId;
   const {
-    processes: {
-      [id]: { taskbarEntry }
-    }
+    processes: { [id]: process }
   } = useProcesses();
+  const { taskbarEntry } = process || {};
   const onBlur = useCallback(
     ({ relatedTarget }: React.FocusEvent) => {
       if (isForeground && relatedTarget !== taskbarEntry) setForegroundId('');

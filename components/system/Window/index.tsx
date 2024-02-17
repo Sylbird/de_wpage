@@ -7,13 +7,13 @@ import { useProcesses } from 'contexts/process';
 import { useRef } from 'react';
 import useFocusable from 'components/system/Window/useFocusable';
 import { useSession } from 'contexts/session';
+import { windowOpenCloseTransition } from 'components/system/Window/transitions';
 
 const Window: FC<ProcessComponentProps> = ({ children, id }) => {
   const {
-    processes: {
-      [id]: { maximized, minimized }
-    }
+    processes: { [id]: process }
   } = useProcesses();
+  const { maximized, minimized } = process || {};
   const { foregroundId } = useSession();
   const isForeground = id === foregroundId;
   const windowRef = useRef<HTMLElement | null>(null);
@@ -27,6 +27,7 @@ const Window: FC<ProcessComponentProps> = ({ children, id }) => {
         $minimized={minimized}
         ref={windowRef}
         {...focusableProps}
+        {...windowOpenCloseTransition}
       >
         <Titlebar id={id} />
         <Content>{children}</Content>

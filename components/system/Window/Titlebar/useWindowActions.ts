@@ -2,6 +2,7 @@ import { useProcesses } from 'contexts/process';
 import { useSession } from 'contexts/session';
 import { useCallback } from 'react';
 import useNextFocusable from 'components/system/Window/useNextFocusable';
+import { TRANSITION_IN_SECONDS } from 'utils/constants';
 
 type WindowActions = {
   onMinimize: React.MouseEventHandler;
@@ -22,7 +23,8 @@ const useWindowsActions = (id: string): WindowActions => {
     setStackOrder((currentStackOrder) =>
       currentStackOrder.filter((stackid) => stackid !== id)
     );
-    close(id);
+    close(id, true);
+    setTimeout(() => close(id), TRANSITION_IN_SECONDS * 1000);
     setForegroundId(nextFocusable);
   }, [setStackOrder, id, close, setForegroundId, nextFocusable]);
 

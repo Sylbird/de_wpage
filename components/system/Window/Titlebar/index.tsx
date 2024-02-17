@@ -19,10 +19,9 @@ type TitlebarProps = {
 
 const Titlebar = ({ id }: TitlebarProps): JSX.Element => {
   const {
-    processes: {
-      [id]: { autoSizing, icon, lockAspectRatio, maximized, title }
-    }
+    processes: { [id]: process }
   } = useProcesses();
+  const { autoSizing, icon, lockAspectRatio, maximized, title } = process || {};
   const { foregroundId } = useSession();
   const isForeground = id === foregroundId;
 

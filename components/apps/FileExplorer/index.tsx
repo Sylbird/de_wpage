@@ -6,11 +6,9 @@ import { useEffect, useMemo } from 'react';
 const FileExplorer = ({ id }: ProcessComponentProps) => {
   const {
     title,
-    processes: {
-      [id]: { url }
-    }
+    processes: { [id]: process }
   } = useProcesses();
-
+  const { url = '' } = process || {};
   const path = useMemo(() => url || '/', [url]);
 
   useEffect(() => title(id, path), [id, path, title]);

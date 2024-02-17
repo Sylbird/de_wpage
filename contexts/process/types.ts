@@ -7,6 +7,7 @@ export type ProcessElements = {
 
 export type Process = ProcessElements & {
   autoSizing?: boolean;
+  closing?: boolean;
   Component: React.ComponentType<ProcessComponentProps>;
   hasWindow?: boolean;
   icon: string;
@@ -22,7 +23,7 @@ export type Processes = {
 };
 
 export type ProcessContextState = {
-  close: (id: string) => void;
+  close: (id: string, closing?: boolean) => void;
   linkElement: (
     id: string,
     name: keyof ProcessElements,

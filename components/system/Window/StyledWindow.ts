@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 type StyledWindowProps = {
@@ -6,7 +7,7 @@ type StyledWindowProps = {
   $minimized?: boolean;
 };
 
-const StyledWindow = styled.section<StyledWindowProps>`
+const StyledWindow = styled(motion.section)<StyledWindowProps>`
   border-radius: ${({ $maximized = false }) =>
     $maximized ? '0px' : ({ theme }) => theme.sizes.window.border.radius};
   box-shadow: ${({ $foreground, theme }) =>
