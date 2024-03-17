@@ -4,7 +4,8 @@ const StyledDesktop = styled.main`
   background-size: cover;
   background-color: #000000;
   bottom: 0;
-  height: 100vh;
+  /*Why height: 100vh; hides the taskbar on mobile?*/
+  height: 100%;
   left: 0;
   overscroll-behavior: none;
   position: fixed;

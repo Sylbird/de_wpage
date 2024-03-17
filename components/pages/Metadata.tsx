@@ -8,6 +8,10 @@ const Metadata: FC = () => {
   return (
     <Head>
       <title>{alias}</title>
+      <meta
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+        name="viewport"
+      />
       <meta name="description" content={description} />
     </Head>
   );
