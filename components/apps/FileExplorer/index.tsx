@@ -1,7 +1,7 @@
 import FileManager from 'components/system/Files/FileManager';
 import { ProcessComponentProps } from 'components/system/RenderProcess';
 import { useProcesses } from 'contexts/process';
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 
 const FileExplorer = ({ id }: ProcessComponentProps) => {
   const {
@@ -9,11 +9,14 @@ const FileExplorer = ({ id }: ProcessComponentProps) => {
     processes: { [id]: process }
   } = useProcesses();
   const { url = '' } = process || {};
-  const path = useMemo(() => url || '/', [url]);
 
-  useEffect(() => title(id, path), [id, path, title]);
+  useEffect(() => {
+    if (url) {
+      title(id, url);
+    }
+  }, [id, title, url]);
 
-  return <FileManager directory={path} />;
+  return url ? <FileManager directory={url} /> : <></>;
 };
 
 export default FileExplorer;
