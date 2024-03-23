@@ -12,6 +12,7 @@ import useWindowsActions from 'components/system/Window/Titlebar/useWindowAction
 import rndDefaults from 'components/system/Window/RndWindow/defaults';
 import { useSession } from 'contexts/session';
 import useDoubleClick from 'hooks/useDoubleClick';
+import { useMemo } from 'react';
 
 type TitlebarProps = {
   id: string;
@@ -27,13 +28,18 @@ const Titlebar = ({ id }: TitlebarProps): JSX.Element => {
 
   const { onClose, onMaximize, onMinimize } = useWindowsActions(id);
 
+  const isMaximizable = useMemo(
+    () => autoSizing && !lockAspectRatio,
+    [autoSizing, lockAspectRatio]
+  );
+
   return (
     <StyledTitlebar
       $foreground={isForeground}
       className={rndDefaults.dragHandleClassName + ' acrylic'}
     >
       <Button
-        onClick={useDoubleClick(autoSizing ? () => undefined : onMaximize)}
+        onClick={useDoubleClick(isMaximizable ? () => undefined : onMaximize)}
       >
         <figure>
           <Icon src={icon} alt={title} $imgSize={16} />
@@ -44,7 +50,7 @@ const Titlebar = ({ id }: TitlebarProps): JSX.Element => {
         <Button onClick={onMinimize}>
           <MinimizeIcon />
         </Button>
-        <Button onClick={onMaximize} disabled={autoSizing && !lockAspectRatio}>
+        <Button onClick={onMaximize} disabled={isMaximizable}>
           {maximized ? <MaximizedIcon /> : <MaximizeIcon />}
         </Button>
         <Button onClick={onClose} className="close">
