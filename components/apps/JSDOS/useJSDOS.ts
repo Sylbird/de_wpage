@@ -4,7 +4,10 @@ import useWindowSize from 'components/system/Window/useWindowSize';
 import { useFileSystem } from 'contexts/fileSystem';
 import { useEffect, useState } from 'react';
 import { bufferToUrl, cleanUpBufferUrl, loadFiles } from 'utils/functions';
-import { libs, pathPrefix } from 'components/apps/JSDOS/config';
+import { globals, libs, pathPrefix } from 'components/apps/JSDOS/config';
+
+const cleanUploader = () =>
+  globals.forEach((global) => delete (window as never)[global]);
 
 const useJSDOS = (
   id: string,
@@ -28,15 +31,22 @@ const useJSDOS = (
               .Dos(screenRef.current as HTMLDivElement)
               .run(objectURL)
               .then((ci) => {
-                appendFileToTitle(url), cleanUpBufferUrl(objectURL);
                 setDos(ci);
+                appendFileToTitle(url);
+                cleanUpBufferUrl(objectURL);
+                cleanUploader();
               });
           }
         })
       );
     }
 
-    return () => dos?.exit();
+    return () => {
+      if (dos) {
+        dos?.exit?.();
+        window.SimpleKeyboardInstances?.emulatorKeyboard?.destroy?.();
+      }
+    };
   }, [appendFileToTitle, dos, fs, screenRef, url]);
 
   useEffect(() => {
