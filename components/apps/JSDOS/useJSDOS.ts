@@ -5,6 +5,7 @@ import { useFileSystem } from 'contexts/fileSystem';
 import { useEffect, useState } from 'react';
 import { bufferToUrl, cleanUpBufferUrl, loadFiles } from 'utils/functions';
 import { globals, libs, pathPrefix } from 'components/apps/JSDOS/config';
+import { useProcesses } from 'contexts/process';
 
 const cleanUploader = () =>
   globals.forEach((global) => delete (window as never)[global]);
@@ -18,6 +19,7 @@ const useJSDOS = (
   const { updateWindowSize } = useWindowSize(id);
   const [dos, setDos] = useState<DosCI | null>(null);
   const { fs } = useFileSystem();
+  const { close } = useProcesses();
 
   useEffect(() => {
     if (!dos && fs && url && screenRef?.current) {
@@ -53,13 +55,25 @@ const useJSDOS = (
     if (dos) {
       updateWindowSize(dos.frameHeight, dos.frameWidth);
 
+      dos.events().onMessage((_msgType, _eventType, command, message) => {
+        if (command === 'LOG_EXEC') {
+          const [dosCommand] = message
+            .replace('Parsing command line: ', '')
+            .split(' ');
+
+          if (dosCommand.toUpperCase() === 'EXIT') {
+            close(id);
+          }
+        }
+      });
+
       dos
         .events()
         .onFrameSize((width, height) =>
           updateWindowSize(height * 2, width * 2)
         );
     }
-  }, [dos, updateWindowSize]);
+  }, [close, dos, id, updateWindowSize]);
 };
 
 export default useJSDOS;
