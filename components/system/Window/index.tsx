@@ -7,27 +7,27 @@ import { useProcesses } from 'contexts/process';
 import { useRef } from 'react';
 import useFocusable from 'components/system/Window/useFocusable';
 import { useSession } from 'contexts/session';
-import { windowOpenCloseTransition } from 'components/system/Window/transitions';
+import useWindowTransitions from 'components/system/Window/useWindowTransitions';
 
 const Window: FC<ProcessComponentProps> = ({ children, id }) => {
   const {
     processes: { [id]: process }
   } = useProcesses();
-  const { maximized, minimized } = process || {};
+  const { maximized } = process || {};
   const { foregroundId } = useSession();
   const isForeground = id === foregroundId;
   const windowRef = useRef<HTMLElement | null>(null);
   const { zIndex, ...focusableProps } = useFocusable(id, windowRef);
+  const windowTransitions = useWindowTransitions(id, windowRef);
 
   return (
     <RndWindow id={id} zIndex={zIndex}>
       <StyledWindow
         $foreground={isForeground}
         $maximized={maximized}
-        $minimized={minimized}
         ref={windowRef}
         {...focusableProps}
-        {...windowOpenCloseTransition}
+        {...windowTransitions}
       >
         <Titlebar id={id} />
         <Content>{children}</Content>

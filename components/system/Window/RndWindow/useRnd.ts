@@ -31,14 +31,13 @@ const useRnd = (id: string, maximized = false): Props => {
   const { windowStates: { [id]: windowState } = {}, setWindowStates } =
     useSession();
   const { position: statePosition, size: stateSize } = windowState || {};
-  const [size, setSize] = useResizable(maximized, autoSizing, stateSize);
+  const [size, setSize] = useResizable(autoSizing, stateSize);
   const {
     sizes: {
       taskbar: { height: taskbarHeight }
     }
   } = useTheme();
   const [position, setPosition] = useDraggable(
-    maximized,
     statePosition || centerPosition(size, taskbarHeight)
   );
 

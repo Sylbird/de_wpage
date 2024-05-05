@@ -4,7 +4,6 @@ import styled from 'styled-components';
 type StyledWindowProps = {
   $foreground: boolean;
   $maximized?: boolean;
-  $minimized?: boolean;
 };
 
 const StyledWindow = styled(motion.section)<StyledWindowProps>`
@@ -14,7 +13,6 @@ const StyledWindow = styled(motion.section)<StyledWindowProps>`
     $foreground
       ? theme.colors.window.shadow
       : theme.colors.window.shadowInactive};
-  display: ${({ $minimized = false }) => ($minimized ? 'none' : 'block')};
   height: 100%;
   outline: ${({ theme }) => theme.colors.window.outline};
   overflow: hidden;

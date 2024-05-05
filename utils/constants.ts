@@ -26,7 +26,7 @@ export const PACKAGE_DATA = {
     repository: 'https://github.com/Sylbird/de_wpage.git'
   },
   description: 'Fake Desktop Environment',
-  license: 'MIT, ISC',
+  license: 'MIT',
   version: '1.0.0'
 };
 
@@ -45,7 +45,7 @@ export const SESSION_FILE = '/session.json';
 
 export const TIFF_IMAGE_FORMATS = ['.cr2', '.dng', '.nef', '.tif', '.tiff'];
 
-export const TRANSITION_IN_SECONDS = 0.2;
+export const WINDOW_TRANSITION_DURATION_IN_MILLISECONDS = 200;
 
 export const IMAGE_FILE_EXTENSIONS = [
   ...TIFF_IMAGE_FORMATS,
