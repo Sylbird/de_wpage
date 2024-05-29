@@ -36,7 +36,11 @@ const Titlebar = ({ id }: TitlebarProps): JSX.Element => {
   return (
     <StyledTitlebar
       $foreground={isForeground}
-      className={rndDefaults.dragHandleClassName + ' acrylic'}
+      className={
+        (maximized ? rndDefaults.cancel : rndDefaults.dragHandleClassName) +
+        ' acrylic'
+      }
+      onDragStart={maximized ? () => undefined : onMaximize}
     >
       <Button
         onClick={useDoubleClick(isMaximizable ? () => undefined : onMaximize)}
