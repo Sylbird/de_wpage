@@ -7,9 +7,8 @@ const Clock = (): JSX.Element => {
   const { numericDate, date, time } = useLocaleDateTime(now);
 
   return (
-    <StyledClock title={date}>
-      <div suppressHydrationWarning>{time}</div>
-      <div>{numericDate}</div>
+    <StyledClock title={date} suppressHydrationWarning>
+      {time} <br /> {numericDate}
     </StyledClock>
   );
 };
