@@ -9,7 +9,7 @@ type FileManagerProps = {
   directory: string;
 };
 
-const FileManager = ({ directory }: FileManagerProps): JSX.Element => {
+const FileManager = ({ directory }: FileManagerProps): React.JSX.Element => {
   const { files, updateFiles } = useFiles(directory);
 
   return (

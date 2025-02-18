@@ -12,7 +12,7 @@ type FileEntryProps = {
   path: string;
 };
 
-const FileEntry = ({ name, path }: FileEntryProps): JSX.Element => {
+const FileEntry = ({ name, path }: FileEntryProps): React.JSX.Element => {
   const { icon, pid, url } = useFileInfo(path);
   const { setForegroundId } = useSession();
   const { minimize, open, processes } = useProcesses();

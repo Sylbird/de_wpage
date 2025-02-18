@@ -16,7 +16,7 @@ const RenderProcess = ({
   Component,
   hasWindow = true,
   id
-}: RenderProcessProps): JSX.Element =>
+}: RenderProcessProps): React.JSX.Element =>
   hasWindow ? (
     <Window id={id}>
       <Component id={id} />

@@ -18,7 +18,7 @@ type TitlebarProps = {
   id: string;
 };
 
-const Titlebar = ({ id }: TitlebarProps): JSX.Element => {
+const Titlebar = ({ id }: TitlebarProps): React.JSX.Element => {
   const {
     processes: { [id]: process }
   } = useProcesses();
