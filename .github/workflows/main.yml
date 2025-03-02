@@ -8,8 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install Dependencies
-        run: NODE_OPTIONS='--openssl-legacy-provider' yarn
+        run: NODE_OPTIONS='--openssl-legacy-provider' pnpm install
       - name: Build App
-        run: yarn build
+        run: pnpm build
       - name: Run Jest Tests
-        run: yarn test
+        run: pnpm test
