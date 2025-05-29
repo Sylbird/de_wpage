@@ -12,14 +12,15 @@ const onLoad: React.ReactEventHandler<HTMLImageElement> = ({ target }) => {
 
 type IconProps = {
   $imgSize: number;
+  src?: string;
 };
 
-const Icon = styled.img.attrs<IconProps>(({ $imgSize, src = '' }) => ({
+const Icon = styled.img.attrs<IconProps>(({ $imgSize, src }) => ({
   draggable: false,
   onLoad,
   src:
     !src || src.startsWith('blob:')
-      ? src
+      ? src || undefined
       : `${dirname(src)}/${$imgSize}x${$imgSize}/${basename(src)}`
 }))<IconProps>`
   visibility: hidden;
