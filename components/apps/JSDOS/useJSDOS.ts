@@ -22,12 +22,12 @@ const useJSDOS = (
   const { close } = useProcesses();
 
   useEffect(() => {
-    if (!dos && fs && url && screenRef?.current) {
+    if (!dos && fs && url) {
       fs.readFile(url, (_error, contents = Buffer.from('')) =>
         loadFiles(libs).then(() => {
           const objectURL = bufferToUrl(contents);
 
-          if (window.emulators) {
+          if (screenRef?.current && window.emulators) {
             window.emulators.pathPrefix = pathPrefix;
             window
               .Dos(screenRef.current as HTMLDivElement)
