@@ -1,27 +1,13 @@
-import { Position, Props, RndResizeCallback } from 'react-rnd';
-import { useCallback } from 'react';
-import { DraggableEventHandler } from 'react-draggable';
-import useResizable, {
-  Size
-} from 'components/system/Window/RndWindow/useResizable';
+import useResizable from 'components/system/Window/RndWindow/useResizable';
 import useDraggable from 'components/system/Window/RndWindow/useDraggable';
 import rndDefaults from 'components/system/Window/RndWindow/defaults';
+import { centerPosition } from 'components/system/Window/functions';
+import { DraggableEventHandler } from 'react-draggable';
+import { Props, RndResizeCallback } from 'react-rnd';
+import { useCallback } from 'react';
 import { useSession } from 'contexts/session';
 import { useProcesses } from 'contexts/process';
-import { pxToNumber } from 'utils/functions';
 import { useTheme } from 'styled-components';
-
-const centerPosition = (
-  { height, width }: Size,
-  taskbarHeight: string
-): Position => {
-  const { innerHeight: vh, innerWidth: vw } = window;
-
-  return {
-    x: Math.floor(vw / 2 - pxToNumber(width) / 2),
-    y: Math.floor((vh - pxToNumber(taskbarHeight)) / 2 - pxToNumber(height) / 2)
-  };
-};
 
 const useRnd = (id: string, maximized = false): Props => {
   const {
