@@ -15,7 +15,7 @@ import { V86ImageConfig, getImageType } from 'components/apps/V86/image';
 const useV86 = (
   id: string,
   url: string,
-  screenContainer: React.MutableRefObject<HTMLDivElement | null>
+  screenContainer: React.RefObject<HTMLDivElement | null>
 ): V86 => {
   const { appendFileToTitle } = useTitle(id);
   const [emulator, setEmulator] = useState<V86Starter | null>(null);

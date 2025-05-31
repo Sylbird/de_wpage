@@ -13,7 +13,7 @@ const cleanUploader = () =>
 const useJSDOS = (
   id: string,
   url: string,
-  screenRef: React.MutableRefObject<HTMLDivElement | null>
+  screenRef: React.RefObject<HTMLDivElement | null>
 ): void => {
   const { appendFileToTitle } = useTitle(id);
   const { updateWindowSize } = useWindowSize(id);

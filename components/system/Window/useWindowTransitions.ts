@@ -34,7 +34,7 @@ const staticMinimizeVariant = {
 
 const useWindowTransitions = (
   id: string,
-  windowRef: React.MutableRefObject<HTMLElement | null>
+  windowRef: React.RefObject<HTMLElement | null>
 ): MotionProps => {
   const {
     processes: {

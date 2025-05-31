@@ -11,7 +11,7 @@ type Focusable = {
 
 const useFocusable = (
   id: string,
-  windowRef: React.MutableRefObject<HTMLElement | null>
+  windowRef: React.RefObject<HTMLElement | null>
 ): Focusable => {
   const { foregroundId, setForegroundId, setStackOrder, stackOrder } =
     useSession();
