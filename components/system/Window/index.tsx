@@ -2,14 +2,14 @@ import Content from 'components/system/Window/Content';
 import RndWindow from 'components/system/Window/RndWindow';
 import StyledWindow from 'components/system/Window/StyledWindow';
 import Titlebar from 'components/system/Window/Titlebar';
-import { ProcessComponentProps } from 'components/system/RenderProcess';
+import { ComponentProcessProps } from 'components/system/Apps/RenderComponent';
 import { useProcesses } from 'contexts/process';
 import { useRef } from 'react';
 import useFocusable from 'components/system/Window/useFocusable';
 import { useSession } from 'contexts/session';
 import useWindowTransitions from 'components/system/Window/useWindowTransitions';
 
-const Window: FC<ProcessComponentProps> = ({ children, id }) => {
+const Window: FC<ComponentProcessProps> = ({ children, id }) => {
   const {
     processes: { [id]: process }
   } = useProcesses();

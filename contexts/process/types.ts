@@ -1,4 +1,4 @@
-import type { ProcessComponentProps } from 'components/system/RenderProcess';
+import type { ComponentProcessProps } from 'components/system/Apps/RenderComponent';
 
 export type ProcessElements = {
   componentWindow?: HTMLElement;
@@ -8,7 +8,7 @@ export type ProcessElements = {
 export type Process = ProcessElements & {
   autoSizing?: boolean;
   closing?: boolean;
-  Component: React.ComponentType<ProcessComponentProps>;
+  Component: React.ComponentType<ComponentProcessProps>;
   hasWindow?: boolean;
   icon: string;
   lockAspectRatio?: boolean;

@@ -1,11 +1,11 @@
-import { ProcessComponentProps } from 'components/system/RenderProcess';
+import { ComponentProcessProps } from 'components/system/Apps/RenderComponent';
 import { useProcesses } from 'contexts/process';
 import { useRef } from 'react';
 import StyledV86 from 'components/apps/V86/StyledV86';
 import useV86ScreenSize from 'components/apps/V86/useV86ScreenSize';
 import useV86 from 'components/apps/V86/useV86';
 
-const V86 = ({ id }: ProcessComponentProps): React.JSX.Element => {
+const V86 = ({ id }: ComponentProcessProps): React.JSX.Element => {
   const {
     processes: { [id]: process }
   } = useProcesses();

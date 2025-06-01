@@ -1,5 +1,5 @@
 import Desktop from 'components/system/Desktop';
-import ProcessLoader from 'components/system/ProcessLoader';
+import AppsLoader from 'components/system/Apps/AppsLoader';
 import Taskbar from 'components/system/Taskbar';
 import FileManager from 'components/system/Files/FileManager';
 import { ProcessProvider } from 'contexts/process';
@@ -9,7 +9,7 @@ const Home = (): React.ReactElement => (
     <Desktop>
       <FileManager directory="User/Public/Desktop" />
       <Taskbar />
-      <ProcessLoader />
+      <AppsLoader />
     </Desktop>
   </ProcessProvider>
 );
