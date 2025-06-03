@@ -30,7 +30,9 @@ const FileEntry = ({ name, path }: FileEntryProps): React.JSX.Element => {
   return (
     <Button onClick={useDoubleClick(onClick)}>
       <figure>
-        <Icon src={icon} alt={name} $imgSize={48} />
+        <picture>
+          <Icon src={icon} alt={name} $imgSize={48} />
+        </picture>
         <figcaption>{name}</figcaption>
       </figure>
     </Button>
