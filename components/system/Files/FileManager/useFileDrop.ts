@@ -20,7 +20,7 @@ const iterateFileName = (path: string, iteration: number): string => {
 };
 
 const useFileDrop = (
-  directory: string,
+  url: string,
   updateFiles: (appendFile?: string) => void
 ): FileDrop => {
   const { fs } = useFileSystem();
@@ -53,7 +53,7 @@ const useFileDrop = (
 
           reader.onload = ({ target }) =>
             writeUniqueName(
-              `${directory}/${file.name}`,
+              `${url}/${file.name}`,
               Buffer.from(new Uint8Array(target?.result as ArrayBuffer))
             );
 
@@ -61,7 +61,7 @@ const useFileDrop = (
         });
       }
     },
-    [directory, fs, updateFiles]
+    [url, fs, updateFiles]
   );
   return {
     onDragOver: haltDragEvent,

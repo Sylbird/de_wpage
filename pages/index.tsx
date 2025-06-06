@@ -5,7 +5,7 @@ import FileManager from 'components/system/Files/FileManager';
 
 const Home = (): React.ReactElement => (
   <Desktop>
-    <FileManager directory="User/Public/Desktop" />
+    <FileManager url="User/Public/Desktop" />
     <Taskbar />
     <AppsLoader />
   </Desktop>

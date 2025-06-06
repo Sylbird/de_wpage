@@ -6,17 +6,17 @@ type Files = {
   updateFiles: (appendFile?: string) => void;
 };
 
-const useFiles = (directory: string): Files => {
+const useFiles = (url: string): Files => {
   const [files, setFiles] = useState<string[]>([]);
   const { fs } = useFileSystem();
   const updateFiles = useCallback(
     (appendFile?: string) =>
-      fs?.readdir(directory, (_error, contents = []) =>
+      fs?.readdir(url, (_error, contents = []) =>
         setFiles((currentFiles) =>
           appendFile ? [...currentFiles, appendFile] : contents
         )
       ),
-    [directory, fs]
+    [url, fs]
   );
 
   useEffect(updateFiles, [updateFiles]);
