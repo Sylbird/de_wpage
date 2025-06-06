@@ -43,7 +43,7 @@ const useFileDrop = (
             if (error?.code === 'EEXIST') {
               writeUniqueName(path, fileBuffer, iteration + 1);
             } else if (!error) {
-              updateFiles(writePath);
+              updateFiles(basename(writePath));
             }
           });
         };
