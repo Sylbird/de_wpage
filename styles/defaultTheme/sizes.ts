@@ -11,7 +11,6 @@ const sizes = {
     iconSize: '48px'
   },
   fileManager: {
-    columnGap: '1px',
     gridEntryHeight: '70px',
     gridEntryWidth: '76px',
     padding: '5px 0',
