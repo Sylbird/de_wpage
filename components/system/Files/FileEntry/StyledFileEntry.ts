@@ -4,6 +4,7 @@ const StyledFileEntry = styled.li`
   border-radius: 3px;
   display: flex;
   height: min-content;
+  padding: 2px 2px 0px 2px;
 
   &:focus-within {
     background-color: ${({ theme }) =>
@@ -28,6 +29,7 @@ const StyledFileEntry = styled.li`
     figure {
       display: flex;
       flex-direction: column;
+      gap: 2px;
       align-items: center;
       word-break: break-word;
       picture {
@@ -44,16 +46,16 @@ const StyledFileEntry = styled.li`
       }
 
       figcaption {
-        color: ${({ theme }) => theme.colors.text};
-        font-size: ${({ theme }) => theme.sizes.fileEntry.fontSize};
-        line-height: 1.292;
-        margin: 1px 4px;
-        padding: 2px 0px;
-        text-shadow: ${({ theme }) => theme.colors.fileEntry.textShadow};
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        color: ${({ theme }) => theme.colors.text};
         display: -webkit-box;
+        font-size: ${({ theme }) => theme.sizes.fileEntry.fontSize};
+        line-height: 15px;
         overflow: hidden;
+        padding-bottom: 3px;
+        text-shadow: ${({ theme }) => theme.colors.fileEntry.textShadow};
       }
     }
   }

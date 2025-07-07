@@ -10,7 +10,7 @@ const colors = {
     0 1px 1px rgba(0, 0, 0, 75%),
     0 1px 2px rgba(0, 0, 0, 50%),
 
-    0 2px 1px rgba(0, 0, 0, 75%),
+    0 2px 1px rgba(0, 0, 0, 50%),
     0 2px 2px rgba(0, 0, 0, 50%)`,
     inactiveBar: 'rgb(159, 154, 151)'
   },
