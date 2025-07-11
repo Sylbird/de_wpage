@@ -11,7 +11,7 @@ import {
   openProcess,
   setProcessElement,
   setTitle
-} from 'contexts/process/function';
+} from 'contexts/process/functions';
 
 const useProcessContextState = (): ProcessContextState => {
   const [processes, setProcesses] = useState<Processes>({});
