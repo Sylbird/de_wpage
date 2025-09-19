@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 import { SessionProvider } from 'contexts/session';
 import { FileSystemProvider } from 'contexts/fileSystem';
 import { ProcessProvider } from 'contexts/process';
+import { MenuProvider } from 'contexts/menu';
 
 const App = ({ Component, pageProps }: AppProps): React.ReactElement => (
   <FileSystemProvider>
@@ -11,7 +12,9 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => (
     <SessionProvider>
       <ProcessProvider>
         <StyledApp>
-          <Component {...pageProps} />
+          <MenuProvider>
+            <Component {...pageProps} />
+          </MenuProvider>
         </StyledApp>
       </ProcessProvider>
     </SessionProvider>

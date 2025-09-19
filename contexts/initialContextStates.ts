@@ -1,11 +1,18 @@
 import { ProcessContextState } from 'contexts/process/types';
 import { SessionContextState } from 'contexts/session/types';
 import { FileSystemContextState } from 'contexts/fileSystem/types';
+import { MenuContextState } from './menu/useMenuContextState';
 
 export const initialFileSystemContextState: FileSystemContextState = {
   fs: null,
   mountFs: () => undefined,
   unMountFs: () => undefined
+};
+
+export const initialMenuContextState: MenuContextState = {
+  contextMenu: () => () => undefined,
+  menu: {},
+  setMenu: () => undefined
 };
 
 export const initialProcessContextState: ProcessContextState = {
