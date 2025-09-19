@@ -17,7 +17,7 @@ const colors = {
   primary: 'rgb(0, 112, 243)',
   taskbar: {
     activeHover: 'rgba(159, 154, 151,0.15)',
-    background: 'rgba(32, 32, 32, 0.7)',
+    background: 'rgba(30, 30, 30, 0.75)',
     entry: {
       active: 'rgba(159, 154, 151,0.1)'
     },

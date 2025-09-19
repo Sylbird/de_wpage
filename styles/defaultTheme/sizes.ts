@@ -21,7 +21,6 @@ const sizes = {
     width: '42px'
   },
   taskbar: {
-    blur: '15px',
     entry: {
       border: {
         activeWidth: '18px',
