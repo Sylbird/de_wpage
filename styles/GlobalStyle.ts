@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
       position: absolute;
       top: 0;
       width: 100%;
+      z-index: -1;
     }
 
     /* TODO: MICA EFFECT SHOULD HAVE THE DOMINANT COLOR OF WALLPAPER AS BACKGROUND COLOR */
