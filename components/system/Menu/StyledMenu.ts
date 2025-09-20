@@ -12,6 +12,7 @@ const StyledMenu = styled.nav<StyledMenuProps>`
   color: rgb(255, 255, 255);
   font-size: 12px;
   height: fit-content;
+  overflow: hidden;
   padding: 4px 4px;
   position: absolute;
   transform: ${({ x, y }) => `translate(${x}px, ${y}px);`};
@@ -19,9 +20,9 @@ const StyledMenu = styled.nav<StyledMenuProps>`
 
   ol {
     hr {
-      background-color: rgb(128, 128, 128);
+      background-color: rgba(255, 255, 255, 0.25);
       height: 1px;
-      margin: 3px 8px;
+      margin: 3px 0px;
     }
 
     figure {

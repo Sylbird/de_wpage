@@ -5,17 +5,24 @@ import useDoubleClick from 'hooks/useDoubleClick';
 import useFile from 'components/system/Files/FileEntry/useFile';
 import useContextMenu from 'components/system/Files/FileEntry/useContextMenu';
 import { useMenu } from 'contexts/menu';
+import { useCallback } from 'react';
 
 type FileEntryProps = {
+  deleteFile: (path: string) => void;
   name: string;
   path: string;
 };
 
-const FileEntry = ({ name, path }: FileEntryProps): React.JSX.Element => {
+const FileEntry = ({
+  deleteFile,
+  name,
+  path
+}: FileEntryProps): React.JSX.Element => {
   const { icon, pid, url } = useFileInfo(path);
   const { contextMenu } = useMenu();
   const openFile = useFile(url, pid);
-  const menu = useContextMenu(url, pid);
+  const deleteEntry = useCallback(() => deleteFile(path), [deleteFile, path]);
+  const menu = useContextMenu(url, pid, deleteEntry);
 
   return (
     <Button

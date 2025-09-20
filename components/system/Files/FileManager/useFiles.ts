@@ -1,7 +1,9 @@
+import { basename } from 'path';
 import { useFileSystem } from 'contexts/fileSystem';
 import { useCallback, useEffect, useState } from 'react';
 
 type Files = {
+  deleteFile: (path: string) => void;
   files: string[];
   updateFiles: (appendFile?: string) => void;
 };
@@ -9,6 +11,7 @@ type Files = {
 const useFiles = (url: string): Files => {
   const [files, setFiles] = useState<string[]>([]);
   const { fs } = useFileSystem();
+
   const updateFiles = useCallback(
     (appendFile?: string) =>
       fs?.readdir(url, (_error, contents = []) =>
@@ -19,9 +22,20 @@ const useFiles = (url: string): Files => {
     [url, fs]
   );
 
+  const deleteFile = useCallback(
+    (path: string) =>
+      fs?.unlink(path, () =>
+        setFiles((currentFiles) =>
+          currentFiles.filter((file) => file !== basename(path))
+        )
+      ),
+    [fs]
+  );
+
   useEffect(updateFiles, [updateFiles]);
 
   return {
+    deleteFile,
     files,
     updateFiles
   };
