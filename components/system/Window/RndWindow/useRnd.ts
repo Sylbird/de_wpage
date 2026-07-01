@@ -2,7 +2,7 @@ import useResizable from 'components/system/Window/RndWindow/useResizable';
 import useDraggable from 'components/system/Window/RndWindow/useDraggable';
 import rndDefaults from 'components/system/Window/RndWindow/defaults';
 import { centerPosition } from 'components/system/Window/functions';
-import { DraggableEventHandler } from 'react-draggable';
+import { RndDragCallback  } from 'react-rnd';
 import { Props, RndResizeCallback } from 'react-rnd';
 import { useCallback } from 'react';
 import { useSession } from 'contexts/session';
@@ -27,7 +27,7 @@ const useRnd = (id: string, maximized = false): Props => {
     statePosition || centerPosition(size, taskbarHeight)
   );
 
-  const onDragStop = useCallback<DraggableEventHandler>(
+  const onDragStop = useCallback<RndDragCallback>(
     (_event, { x, y }) => {
       const newPosition = { x, y };
 
