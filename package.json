@@ -19,7 +19,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "browserfs": "https://github.com/jvilk/BrowserFS#a96aa2d",
+    "browserfs": "https://github.com/jvilk/BrowserFS#a96aa2d417995dac7d376987839bc4e95e218e06",
     "framer-motion": "^12.38.0",
     "ini": "^5.0.0",
     "next": "^15.5.14",
@@ -48,11 +48,5 @@
     "stylelint": "^16.26.1",
     "stylelint-config-standard": "^37.0.0",
     "typescript": "^5.9.3"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "sharp",
-      "browserfs"
-    ]
   }
 }
