@@ -48,6 +48,5 @@
     "stylelint": "^16.26.1",
     "stylelint-config-standard": "^37.0.0",
     "typescript": "^5.9.3"
-  },
-  "packageManager": "pnpm@11.9.0"
+  }
 }
