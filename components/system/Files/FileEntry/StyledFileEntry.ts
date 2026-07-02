@@ -54,7 +54,7 @@ const StyledFileEntry = styled.li`
         font-size: ${({ theme }) => theme.sizes.fileEntry.fontSize};
         line-height: 15px;
         overflow: hidden;
-        padding-bottom: 3px;
+        padding: 3px;
         text-shadow: ${({ theme }) => theme.colors.fileEntry.textShadow};
       }
     }
