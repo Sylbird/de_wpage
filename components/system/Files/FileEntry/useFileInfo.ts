@@ -7,7 +7,7 @@ import {
   getIconByFileExtension,
   getProcessByFileExtension
 } from 'components/system/Files/FileEntry/functions';
-import { bufferToUrl } from 'utils/functions';
+import { bufferToBlob } from 'utils/functions';
 
 type FileInfo = {
   icon: string;
@@ -63,11 +63,22 @@ const useFileInfo = (path: string): FileInfo => {
               }
             });
           } else if (IMAGE_FILE_EXTENSIONS.includes(extension)) {
-            fs.readFile(path, (error, contents = Buffer.from('')) =>
-              getInfoByFileExtension(
-                error ? 'System/Icons/picture.png' : bufferToUrl(contents)
-              )
-            );
+            fs.readFile(path, async (error, contents = Buffer.from('')) => {
+              if (error || contents.length === 0) {
+                return getInfoByFileExtension('System/Icons/picture.png');
+              }
+              // Verify if file is an actual image
+              const blob = bufferToBlob(contents);
+              try {
+                // validate the blob using ImageBitmap, then close it to avoid memory leak
+                const bitmap = await createImageBitmap(blob);
+                bitmap.close();
+                const url = URL.createObjectURL(blob);
+                getInfoByFileExtension(url);
+              } catch {
+                getInfoByFileExtension('System/Icons/picture.png');
+              }
+            });
           } else {
             getInfoByFileExtension();
           }

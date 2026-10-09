@@ -1,6 +1,9 @@
 import { extname } from 'path';
 import { ONE_TIME_PASSIVE_EVENT } from 'utils/constants';
 
+export const bufferToBlob = (buffer: Buffer): Blob =>
+  new Blob([new Uint8Array(buffer)]);
+
 export const bufferToUrl = (buffer: Buffer): string =>
   URL.createObjectURL(new Blob([new Uint8Array(buffer)]));
 
