@@ -1,9 +1,9 @@
-import { basename, extname, resolve } from 'path';
 import FileEntry from 'components/system/Files/FileEntry';
 import StyledFileEntry from 'components/system/Files/FileEntry/StyledFileEntry';
 import StyledFileManager from 'components/system/Files/FileManager/StyledFileManager';
 import useFiles from 'components/system/Files/FileManager/useFiles';
 import useFileDrop from 'components/system/Files/FileManager/useFileDrop';
+import { basename, extname, resolve } from 'path';
 import { useFileSystem } from 'contexts/fileSystem';
 import { useEffect } from 'react';
 
@@ -14,7 +14,7 @@ type FileManagerProps = {
 const MOUNTABLE_EXTENSIONS = ['.iso', '.zip'];
 
 const FileManager = ({ url }: FileManagerProps): React.JSX.Element => {
-  const { deleteFile, files, updateFiles } = useFiles(url);
+  const { deleteFile, files, renameFile, updateFiles } = useFiles(url);
   const { mountFs, unMountFs } = useFileSystem();
 
   useEffect(() => {
@@ -38,6 +38,7 @@ const FileManager = ({ url }: FileManagerProps): React.JSX.Element => {
                 : basename(file)
             }
             path={resolve(url, file)}
+            renameFile={renameFile}
           />
         </StyledFileEntry>
       ))}

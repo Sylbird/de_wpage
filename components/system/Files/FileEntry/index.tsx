@@ -4,25 +4,30 @@ import Button from 'styles/custom/Button';
 import useDoubleClick from 'hooks/useDoubleClick';
 import useFile from 'components/system/Files/FileEntry/useFile';
 import useContextMenu from 'components/system/Files/FileEntry/useContextMenu';
+import RenameBox from './RenameBox';
 import { useMenu } from 'contexts/menu';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 type FileEntryProps = {
   deleteFile: (path: string) => void;
   name: string;
   path: string;
+  renameFile: (path: string, newName?: string) => void;
 };
 
 const FileEntry = ({
   deleteFile,
   name,
-  path
+  path,
+  renameFile,
 }: FileEntryProps): React.JSX.Element => {
   const { icon, pid, url } = useFileInfo(path);
+  const [renaming, setRenaming] = useState(false);
   const { contextMenu } = useMenu();
   const openFile = useFile(url, pid);
   const deleteEntry = useCallback(() => deleteFile(path), [deleteFile, path]);
-  const menu = useContextMenu(url, pid, deleteEntry);
+  const renameEntry = useCallback(() => setRenaming(true), [setRenaming]);
+  const menu = useContextMenu(url, pid, deleteEntry, renameEntry);
 
   return (
     <Button
@@ -33,7 +38,18 @@ const FileEntry = ({
         <picture>
           <Icon src={icon} alt={name} $imgSize={48} />
         </picture>
-        <figcaption>{name}</figcaption>
+        {renaming ? (
+          <RenameBox
+            name={name}
+            path={path}
+            renameFile={(origPath, newName) => {
+              renameFile(origPath, newName);
+              setRenaming(false);
+            }}
+          />
+        ) : (
+          <figcaption>{name}</figcaption>
+        )}
       </figure>
     </Button>
   );

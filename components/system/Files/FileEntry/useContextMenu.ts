@@ -5,11 +5,15 @@ import type { MenuItem } from 'contexts/menu/useMenuContextState';
 const useContextMenu = (
   url: string,
   pid: string,
-  deleteFile: () => void
+  deleteFile: () => void,
+  renameFile: () => void,
 ): MenuItem[] => {
   const { icon: pidIcon } = processDirectory[pid] || {};
   const openFile = useFile(url, pid);
-  const menuItems: MenuItem[] = [{ label: 'Delete', action: deleteFile }];
+  const menuItems: MenuItem[] = [
+    { label: 'Delete', action: deleteFile },
+    { label: 'Rename', action: renameFile },
+  ];
 
   if (pid) {
     menuItems.unshift(
@@ -17,9 +21,9 @@ const useContextMenu = (
         icon: pidIcon,
         label: 'Open',
         primary: true,
-        action: openFile
+        action: openFile,
       },
-      { separator: 1 }
+      { separator: 1 },
     );
   }
 
