@@ -54,6 +54,8 @@ const useFileInfo = (path: string): FileInfo => {
                     BaseURL: pid = '',
                     IconFile: icon = '',
                     URL: url = ''
+                  } = {
+                    IconFile: '/System/Icons/Unknown.png'
                   }
                 } = ini.parse(contents.toString());
 
