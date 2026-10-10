@@ -11,7 +11,7 @@ const MenuItemEntry = ({
   label,
   primary,
   resetMenu,
-  separator
+  separator,
 }: MenuItemEntryProps): React.JSX.Element => (
   <li>
     {separator ? (

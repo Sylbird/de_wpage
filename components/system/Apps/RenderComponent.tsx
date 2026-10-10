@@ -15,7 +15,7 @@ type RenderComponentProps = {
 const RenderComponent = ({
   Component,
   hasWindow = true,
-  id
+  id,
 }: RenderComponentProps): React.JSX.Element =>
   hasWindow ? (
     <Window id={id}>

@@ -6,11 +6,11 @@ import contextFactory from 'contexts/contextFactory';
 const { Consumer, Provider, useContext } =
   contextFactory<FileSystemContextState>(
     initialFileSystemContextState,
-    useFileSystemContextState
+    useFileSystemContextState,
   );
 
 export {
   Consumer as FileSystemConsumer,
   Provider as FileSystemProvider,
-  useContext as useFileSystem
+  useContext as useFileSystem,
 };

@@ -10,13 +10,13 @@ const withStyledComponents = async (ctx: DocumentContext) => {
   try {
     ctx.renderPage = () =>
       originalRenderPage({
-        enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />)
+        enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
       });
 
     const initialProps = await Document.getInitialProps(ctx);
     return {
       ...initialProps,
-      styles: [initialProps.styles, sheet.getStyleElement()]
+      styles: [initialProps.styles, sheet.getStyleElement()],
     };
   } finally {
     sheet.seal();
@@ -25,7 +25,7 @@ const withStyledComponents = async (ctx: DocumentContext) => {
 
 export default class MyDocument extends Document {
   static async getInitialProps(
-    ctx: DocumentContext
+    ctx: DocumentContext,
   ): Promise<DocumentInitialProps> {
     return withStyledComponents(ctx);
   }

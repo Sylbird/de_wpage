@@ -24,7 +24,7 @@ const reRouteFocus =
 const RndWindow: FC<RndWindowProps> = ({ children, id, zIndex }) => {
   const {
     linkElement,
-    processes: { [id]: process }
+    processes: { [id]: process },
   } = useProcesses();
   const { Component, componentWindow, maximized, minimized } = process || {};
   const rndRef = useRef<Rnd | null>(null);
@@ -32,9 +32,9 @@ const RndWindow: FC<RndWindowProps> = ({ children, id, zIndex }) => {
   const style = useMemo<React.CSSProperties>(
     () => ({
       pointerEvents: minimized ? 'none' : undefined,
-      zIndex
+      zIndex,
     }),
-    [minimized, zIndex]
+    [minimized, zIndex],
   );
 
   const linkComponentWindow = useCallback(
@@ -49,7 +49,7 @@ const RndWindow: FC<RndWindowProps> = ({ children, id, zIndex }) => {
         linkElement(id, 'componentWindow', windowContainer);
       }
     },
-    [Component, componentWindow, id, linkElement]
+    [Component, componentWindow, id, linkElement],
   );
 
   useEffect(() => {

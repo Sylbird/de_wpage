@@ -9,7 +9,7 @@ type WindowSize = {
 const useWindowSize = (id: string): WindowSize => {
   const { setWindowStates } = useSession();
   const {
-    sizes: { titleBar }
+    sizes: { titleBar },
   } = useTheme();
 
   const updateWindowSize = useCallback(
@@ -19,15 +19,15 @@ const useWindowSize = (id: string): WindowSize => {
         [id]: {
           size: {
             height: height + titleBar.height,
-            width
-          }
-        }
+            width,
+          },
+        },
       })),
-    [id, setWindowStates, titleBar.height]
+    [id, setWindowStates, titleBar.height],
   );
 
   return {
-    updateWindowSize
+    updateWindowSize,
   };
 };
 

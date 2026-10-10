@@ -5,11 +5,11 @@ import contextFactory from 'contexts/contextFactory';
 
 const { Consumer, Provider, useContext } = contextFactory<SessionContextState>(
   initialSessionContextState,
-  useSessionContextState
+  useSessionContextState,
 );
 
 export {
   Consumer as SessionConsumer,
   Provider as SessionProvider,
-  useContext as useSession
+  useContext as useSession,
 };

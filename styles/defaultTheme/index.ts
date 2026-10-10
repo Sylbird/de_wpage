@@ -8,7 +8,7 @@ const defaultTheme: DefaultTheme = {
   colors,
   formats,
   sizes,
-  wallpaper
+  wallpaper,
 };
 
 export default defaultTheme;

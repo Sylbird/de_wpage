@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 const FileExplorer = ({ id }: ComponentProcessProps) => {
   const {
     title,
-    processes: { [id]: process }
+    processes: { [id]: process },
   } = useProcesses();
   const { url = '' } = process || {};
 

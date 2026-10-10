@@ -7,7 +7,7 @@ test('renders Home page', () => {
   render(
     <StyledApp>
       <Home />
-    </StyledApp>
+    </StyledApp>,
   );
 
   expect(screen.getByRole('main')).toBeInTheDocument();

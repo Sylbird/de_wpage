@@ -6,12 +6,12 @@ export const config = {
   bios: { url: '/Program Files/Virtual x86/bios/seabios.bin' },
   filesystem: {
     basefs: '/.index/fs.9p.json',
-    baseurl: '/'
+    baseurl: '/',
   },
   log_level: 0,
   network_relay_url: 'wss://relay.widgetry.org/',
   vga_bios: { url: '/Program Files/Virtual x86/bios/vgabios.bin' },
-  wasm_path: '/Program Files/Virtual x86/v86.wasm'
+  wasm_path: '/Program Files/Virtual x86/v86.wasm',
 };
 
 export const libs = ['/Program Files/Virtual x86/libv86.js'];

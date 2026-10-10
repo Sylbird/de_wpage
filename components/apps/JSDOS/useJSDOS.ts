@@ -13,7 +13,7 @@ const cleanUploader = () =>
 const useJSDOS = (
   id: string,
   url: string,
-  screenRef: React.RefObject<HTMLDivElement | null>
+  screenRef: React.RefObject<HTMLDivElement | null>,
 ): void => {
   const { appendFileToTitle } = useTitle(id);
   const { updateWindowSize } = useWindowSize(id);
@@ -39,7 +39,7 @@ const useJSDOS = (
                 cleanUploader();
               });
           }
-        })
+        }),
       );
     }
 
@@ -70,7 +70,7 @@ const useJSDOS = (
       dos
         .events()
         .onFrameSize((width, height) =>
-          updateWindowSize(height * 2, width * 2)
+          updateWindowSize(height * 2, width * 2),
         );
     }
   }, [close, dos, id, updateWindowSize]);

@@ -2,7 +2,7 @@ import {
   BOOT_CD_FD_HD,
   BOOT_FD_CD_HD,
   libs,
-  config
+  config,
 } from 'components/apps/V86/config';
 import type { V86, V86Starter } from 'components/apps/V86/types';
 import useTitle from 'components/system/Window/useTitle';
@@ -15,7 +15,7 @@ import { V86ImageConfig, getImageType } from 'components/apps/V86/image';
 const useV86 = (
   id: string,
   url: string,
-  screenContainer: React.RefObject<HTMLDivElement | null>
+  screenContainer: React.RefObject<HTMLDivElement | null>,
 ): V86 => {
   const { appendFileToTitle } = useTitle(id);
   const [emulator, setEmulator] = useState<V86Starter | null>(null);
@@ -36,8 +36,8 @@ const useV86 = (
                 async: false,
                 size: contents.length,
                 url: bufferUrl,
-                use_parts: false
-              }
+                use_parts: false,
+              },
             };
             const v86 = new window.V86Starter({
               memory_size: memoryRatio * 1024 * 1024 * 1024,
@@ -45,7 +45,7 @@ const useV86 = (
               boot_order: isISO ? BOOT_CD_FD_HD : BOOT_FD_CD_HD,
               screen_container: screenContainer.current,
               ...v86ImageConfig,
-              ...config
+              ...config,
             });
             v86.add_listener('emulator-loaded', () => {
               appendFileToTitle(url);
@@ -63,7 +63,7 @@ const useV86 = (
 
   return {
     emulator,
-    lockMouse
+    lockMouse,
   };
 };
 

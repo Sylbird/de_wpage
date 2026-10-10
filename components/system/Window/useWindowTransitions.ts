@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useTheme } from 'styled-components';
 import {
   MILLISECONDS_IN_SECOND,
-  WINDOW_TRANSITION_DURATION_IN_MILLISECONDS
+  WINDOW_TRANSITION_DURATION_IN_MILLISECONDS,
 } from 'utils/constants';
 import { pxToNumber } from 'utils/functions';
 
@@ -13,37 +13,37 @@ const staticBaseVariants = {
     height: 'inherit',
     opacity: 1,
     scale: 1,
-    width: 'inherit'
+    width: 'inherit',
   },
   initial: {
     opacity: 0,
-    scale: 0.95
-  }
+    scale: 0.95,
+  },
 };
 
 const staticMaximizeVariant = {
   opacity: 1,
   scale: 1,
-  width: '100vw'
+  width: '100vw',
 };
 
 const staticMinimizeVariant = {
   opacity: 0,
-  scale: 0.75
+  scale: 0.75,
 };
 
 const useWindowTransitions = (
   id: string,
-  windowRef: React.RefObject<HTMLElement | null>
+  windowRef: React.RefObject<HTMLElement | null>,
 ): MotionProps => {
   const {
     processes: {
       [id]: {
         maximized = false,
         minimized = false,
-        taskbarEntry = undefined
-      } = {}
-    }
+        taskbarEntry = undefined,
+      } = {},
+    },
   } = useProcesses();
   const { sizes: { taskbar } = {} } = useTheme();
   const [maximize, setMaximize] = useState<Variant>({});
@@ -57,7 +57,7 @@ const useWindowTransitions = (
       ...staticMaximizeVariant,
       height: `${window.innerHeight - pxToNumber(taskbar?.height)}px`,
       x: -windowX,
-      y: -windowY
+      y: -windowY,
     });
   }, [maximized, taskbar?.height, windowRef]);
 
@@ -66,18 +66,18 @@ const useWindowTransitions = (
       height: taskbarHeight = 0,
       width: taskbarWidth = 0,
       x: taskbarX = 0,
-      y: taskbarY = 0
+      y: taskbarY = 0,
     } = taskbarEntry?.getBoundingClientRect() || {};
     const {
       height: windowHeight = 0,
       x: windowX = 0,
-      y: windowY = 0
+      y: windowY = 0,
     } = windowRef?.current?.getBoundingClientRect() || {};
 
     setMinimize({
       ...staticMinimizeVariant,
       x: taskbarX - windowX - taskbarWidth / 2,
-      y: taskbarY - windowY - windowHeight / 2 - taskbarHeight / 2
+      y: taskbarY - windowY - windowHeight / 2 - taskbarHeight / 2,
     });
   }, [minimized, taskbarEntry, windowRef]);
 
@@ -87,13 +87,13 @@ const useWindowTransitions = (
     initial: 'initial',
     transition: {
       duration:
-        WINDOW_TRANSITION_DURATION_IN_MILLISECONDS / MILLISECONDS_IN_SECOND
+        WINDOW_TRANSITION_DURATION_IN_MILLISECONDS / MILLISECONDS_IN_SECOND,
     },
     variants: {
       ...staticBaseVariants,
       maximize,
-      minimize
-    }
+      minimize,
+    },
   };
 };
 

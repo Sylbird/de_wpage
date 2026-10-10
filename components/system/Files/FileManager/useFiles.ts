@@ -17,8 +17,8 @@ const useFiles = (directory: string): Files => {
     (appendFile?: string) =>
       fs?.readdir(directory, (_error, contents = []) =>
         setFiles((currentFiles) =>
-          appendFile ? [...currentFiles, appendFile] : contents
-        )
+          appendFile ? [...currentFiles, appendFile] : contents,
+        ),
       ),
     [directory, fs],
   );
@@ -27,10 +27,10 @@ const useFiles = (directory: string): Files => {
     (path: string) =>
       fs?.unlink(path, () =>
         setFiles((currentFiles) =>
-          currentFiles.filter((file) => file !== basename(path))
-        )
+          currentFiles.filter((file) => file !== basename(path)),
+        ),
       ),
-    [fs]
+    [fs],
   );
   const renameFile = useCallback(
     (path: string, newName?: string) => {

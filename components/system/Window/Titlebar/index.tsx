@@ -6,7 +6,7 @@ import {
   CloseIcon,
   MaximizedIcon,
   MaximizeIcon,
-  MinimizeIcon
+  MinimizeIcon,
 } from 'components/system/Window/Titlebar/TitlebarIcons';
 import useWindowsActions from 'components/system/Window/Titlebar/useWindowActions';
 import rndDefaults from 'components/system/Window/RndWindow/defaults';
@@ -20,7 +20,7 @@ type TitlebarProps = {
 
 const Titlebar = ({ id }: TitlebarProps): React.JSX.Element => {
   const {
-    processes: { [id]: process }
+    processes: { [id]: process },
   } = useProcesses();
   const { autoSizing, icon, lockAspectRatio, maximized, title } = process || {};
   const { foregroundId } = useSession();
@@ -30,7 +30,7 @@ const Titlebar = ({ id }: TitlebarProps): React.JSX.Element => {
 
   const isMaximizable = useMemo(
     () => autoSizing && !lockAspectRatio,
-    [autoSizing, lockAspectRatio]
+    [autoSizing, lockAspectRatio],
   );
 
   return (

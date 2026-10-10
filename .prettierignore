@@ -1,0 +1,7 @@
+# Ignore folders
+/public/libs
+/public/.index
+/scripts
+/public/System/Vanta.js
+/public/Program Files/Virtual x86
+# Ignore files

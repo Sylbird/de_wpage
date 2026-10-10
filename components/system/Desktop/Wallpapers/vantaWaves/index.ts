@@ -3,7 +3,7 @@ import { loadFiles } from 'utils/functions';
 
 const libs = [
   '/System/Vanta.js/three.min.js',
-  '/System/Vanta.js/vanta.waves.min.js'
+  '/System/Vanta.js/vanta.waves.min.js',
 ];
 
 const vantaWaves = (el: HTMLElement | null) => {
@@ -23,7 +23,7 @@ const vantaWaves = (el: HTMLElement | null) => {
     if (WAVES) {
       WAVES({
         el,
-        ...config
+        ...config,
       });
     }
   });

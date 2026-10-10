@@ -2,7 +2,7 @@ import useResizable from 'components/system/Window/RndWindow/useResizable';
 import useDraggable from 'components/system/Window/RndWindow/useDraggable';
 import rndDefaults from 'components/system/Window/RndWindow/defaults';
 import { centerPosition } from 'components/system/Window/functions';
-import { RndDragCallback  } from 'react-rnd';
+import { RndDragCallback } from 'react-rnd';
 import { Props, RndResizeCallback } from 'react-rnd';
 import { useCallback } from 'react';
 import { useSession } from 'contexts/session';
@@ -11,7 +11,7 @@ import { useTheme } from 'styled-components';
 
 const useRnd = (id: string, maximized = false): Props => {
   const {
-    processes: { [id]: process }
+    processes: { [id]: process },
   } = useProcesses();
   const { autoSizing, lockAspectRatio } = process || {};
   const { windowStates: { [id]: windowState } = {}, setWindowStates } =
@@ -20,11 +20,11 @@ const useRnd = (id: string, maximized = false): Props => {
   const [size, setSize] = useResizable(autoSizing, stateSize);
   const {
     sizes: {
-      taskbar: { height: taskbarHeight }
-    }
+      taskbar: { height: taskbarHeight },
+    },
   } = useTheme();
   const [position, setPosition] = useDraggable(
-    statePosition || centerPosition(size, taskbarHeight)
+    statePosition || centerPosition(size, taskbarHeight),
   );
 
   const onDragStop = useCallback<RndDragCallback>(
@@ -36,11 +36,11 @@ const useRnd = (id: string, maximized = false): Props => {
         ...currentWindowStates,
         [id]: {
           ...currentWindowStates[id],
-          position: newPosition
-        }
+          position: newPosition,
+        },
       }));
     },
-    [setPosition, setWindowStates, id]
+    [setPosition, setWindowStates, id],
   );
 
   const onResizeStop = useCallback<RndResizeCallback>(
@@ -54,11 +54,11 @@ const useRnd = (id: string, maximized = false): Props => {
         [id]: {
           ...currentWindowStates[id],
           position: newPositon,
-          size: newSize
-        }
+          size: newSize,
+        },
       }));
     },
-    [id, setSize, setPosition, setWindowStates]
+    [id, setSize, setPosition, setWindowStates],
   );
 
   return {
@@ -69,7 +69,7 @@ const useRnd = (id: string, maximized = false): Props => {
     onResizeStop,
     position,
     size,
-    ...rndDefaults
+    ...rndDefaults,
   };
 };
 

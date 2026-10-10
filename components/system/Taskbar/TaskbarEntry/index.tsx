@@ -12,14 +12,18 @@ type TaskbarEntryProps = {
   title: string;
 };
 
-const TaskbarEntry = ({ icon, id, title }: TaskbarEntryProps): React.JSX.Element => {
+const TaskbarEntry = ({
+  icon,
+  id,
+  title,
+}: TaskbarEntryProps): React.JSX.Element => {
   const nextFocusableId = useNextFocusable(id);
   const { foregroundId, setForegroundId } = useSession();
   const isForeground = id === foregroundId;
   const {
     linkElement,
     minimize,
-    processes: { [id]: process }
+    processes: { [id]: process },
   } = useProcesses();
   const { minimized } = process || {};
   const linkTaskbarEntry = useCallback(
@@ -28,7 +32,7 @@ const TaskbarEntry = ({ icon, id, title }: TaskbarEntryProps): React.JSX.Element
         linkElement(id, 'taskbarEntry', taskbarEntry);
       }
     },
-    [id, linkElement]
+    [id, linkElement],
   );
   const onClick = useCallback(() => {
     if (minimized || isForeground) {

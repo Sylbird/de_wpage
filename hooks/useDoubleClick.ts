@@ -2,7 +2,7 @@ import { useCallback, useRef } from 'react';
 
 type DoubleClick = (
   handler: React.MouseEventHandler,
-  timeout?: number
+  timeout?: number,
 ) => React.MouseEventHandler;
 
 const useDoubleClick: DoubleClick = (handler, timeout = 500) => {
@@ -19,7 +19,7 @@ const useDoubleClick: DoubleClick = (handler, timeout = 500) => {
         timer.current = null;
       }
     },
-    [handler, timeout]
+    [handler, timeout],
   );
   return onClick;
 };

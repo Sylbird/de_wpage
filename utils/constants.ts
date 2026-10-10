@@ -8,12 +8,12 @@ export const DEFAULT_THEME: ThemeName = 'defaultTheme';
 
 export const DEFAULT_WINDOW_POSITION: Position = {
   x: 0,
-  y: 0
+  y: 0,
 };
 
 export const DEFAULT_WINDOW_SIZE: Size = {
   height: '350px',
-  width: '350px'
+  width: '350px',
 };
 
 export const FOCUSABLE_ELEMENT = { tabIndex: -1 };
@@ -23,11 +23,11 @@ export const PACKAGE_DATA = {
   author: {
     email: 'ldmc.dvl@gmail.com',
     name: 'Sylbird',
-    repository: 'https://github.com/Sylbird/de_wpage.git'
+    repository: 'https://github.com/Sylbird/de_wpage.git',
   },
   description: 'Fake Desktop Environment',
   license: 'MIT',
-  version: '1.0.0'
+  version: '1.0.0',
 };
 
 export const PREVENT_SCROLL = { preventScroll: true };
@@ -38,7 +38,7 @@ export const MILLISECONDS_IN_SECOND = 1000;
 
 export const ONE_TIME_PASSIVE_EVENT = {
   once: true,
-  passive: true
+  passive: true,
 } as AddEventListenerOptions;
 
 export const SESSION_FILE = '/session.json';
@@ -68,5 +68,5 @@ export const IMAGE_FILE_EXTENSIONS = [
   '.svg',
   '.qoi',
   '.webp',
-  '.xbm'
+  '.xbm',
 ];

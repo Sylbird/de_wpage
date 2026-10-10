@@ -3,7 +3,7 @@ import { createContext, useContext } from 'react';
 type ContextFactory = <T>(
   initialContextState: T,
   useContextState: () => T,
-  ContextComponent?: React.ComponentType
+  ContextComponent?: React.ComponentType,
 ) => {
   Consumer: React.Consumer<T>;
   Provider: FC;
@@ -13,7 +13,7 @@ type ContextFactory = <T>(
 const contextFactory: ContextFactory = (
   initialContextState,
   useContextState,
-  ContextComponent
+  ContextComponent,
 ) => {
   const Context = createContext(initialContextState);
 
@@ -27,7 +27,7 @@ const contextFactory: ContextFactory = (
   return {
     Consumer: Context.Consumer,
     Provider: ProcessProvider,
-    useContext: () => useContext(Context)
+    useContext: () => useContext(Context),
   };
 };
 

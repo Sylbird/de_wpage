@@ -6,7 +6,7 @@ import useJSDOS from 'components/apps/JSDOS/useJSDOS';
 
 const JSDOS = ({ id }: ComponentProcessProps) => {
   const {
-    processes: { [id]: process }
+    processes: { [id]: process },
   } = useProcesses();
   const { url = '' } = process || {};
   const screenRef = useRef<HTMLDivElement | null>(null);

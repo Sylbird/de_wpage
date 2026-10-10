@@ -21,7 +21,7 @@ const iterateFileName = (path: string, iteration: number): string => {
 
 const useFileDrop = (
   url: string,
-  updateFiles: (appendFile?: string) => void
+  updateFiles: (appendFile?: string) => void,
 ): FileDrop => {
   const { fs } = useFileSystem();
   const onDrop = useCallback(
@@ -33,7 +33,7 @@ const useFileDrop = (
         const writeUniqueName = (
           path: string,
           fileBuffer: Buffer,
-          iteration = 0
+          iteration = 0,
         ): void => {
           const writePath = !iteration
             ? path
@@ -54,18 +54,18 @@ const useFileDrop = (
           reader.onload = ({ target }) =>
             writeUniqueName(
               `${url}/${file.name}`,
-              Buffer.from(new Uint8Array(target?.result as ArrayBuffer))
+              Buffer.from(new Uint8Array(target?.result as ArrayBuffer)),
             );
 
           reader.readAsArrayBuffer(file);
         });
       }
     },
-    [url, fs, updateFiles]
+    [url, fs, updateFiles],
   );
   return {
     onDragOver: haltDragEvent,
-    onDrop
+    onDrop,
   };
 };
 

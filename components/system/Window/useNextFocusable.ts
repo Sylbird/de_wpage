@@ -6,7 +6,7 @@ const useNextFocusable = (id: string): string => {
   const { processes } = useProcesses();
 
   const nextFocusableId = stackOrder.find(
-    (stackId) => stackId !== id && !processes?.[stackId]?.minimized
+    (stackId) => stackId !== id && !processes?.[stackId]?.minimized,
   );
 
   return nextFocusableId || '';

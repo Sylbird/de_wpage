@@ -15,7 +15,7 @@ export const haltEvent = (
     | React.DragEvent
     | React.FocusEvent
     | React.KeyboardEvent
-    | React.MouseEvent
+    | React.MouseEvent,
 ): void => {
   try {
     if (event.cancelable) {
@@ -31,12 +31,12 @@ const loadScript = (
   src: string,
   defer?: boolean,
   force?: boolean,
-  asModule?: boolean
+  asModule?: boolean,
 ): Promise<Event> =>
   new Promise((resolve, reject) => {
     const loadedScripts = [...document.scripts];
     const currentScript = loadedScripts.find((loadedScript) =>
-      loadedScript.src.endsWith(src)
+      loadedScript.src.endsWith(src),
     );
 
     if (currentScript) {
@@ -49,7 +49,7 @@ const loadScript = (
     }
 
     const script = document.createElement(
-      'script'
+      'script',
     ) as HTMLElementWithPriority<HTMLScriptElement>;
 
     script.async = false;
@@ -66,7 +66,7 @@ const loadScript = (
 const loadStyle = (href: string): Promise<Event> =>
   new Promise((resolve, reject) => {
     const loadedStyles = [
-      ...document.querySelectorAll('link[rel=stylesheet]')
+      ...document.querySelectorAll('link[rel=stylesheet]'),
     ] as HTMLLinkElement[];
 
     if (loadedStyles.some((loadedStyle) => loadedStyle.href.endsWith(href))) {
@@ -75,7 +75,7 @@ const loadStyle = (href: string): Promise<Event> =>
     }
 
     const link = document.createElement(
-      'link'
+      'link',
     ) as HTMLElementWithPriority<HTMLLinkElement>;
 
     link.rel = 'stylesheet';
@@ -93,7 +93,7 @@ export const loadFiles = async (
   files?: string[],
   defer?: boolean,
   force?: boolean,
-  asModule?: boolean
+  asModule?: boolean,
 ): Promise<void | Event[]> =>
   !files || files.length === 0
     ? Promise.resolve()
@@ -102,7 +102,7 @@ export const loadFiles = async (
           return getExtension(file) === '.css'
             ? loadStyle(encodeURI(file))
             : loadScript(encodeURI(file), defer, force, asModule);
-        })
+        }),
       );
 
 export const pxToNumber = (value: number | string = 0): number =>

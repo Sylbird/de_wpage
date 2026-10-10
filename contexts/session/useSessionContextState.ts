@@ -29,7 +29,7 @@ const useSessionContextState = (): SessionContextState => {
         }
         setSessionLoaded(true);
       }),
-    [fs]
+    [fs],
   );
 
   return {
@@ -40,7 +40,7 @@ const useSessionContextState = (): SessionContextState => {
     themeName,
     windowStates,
     setThemeName,
-    setWindowStates
+    setWindowStates,
   };
 };
 

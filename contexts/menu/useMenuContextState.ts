@@ -29,7 +29,7 @@ const useMenuContextState = (): MenuContextState => {
         const { pageX: x, pageY: y } = event;
         setMenu({ items, x, y });
       },
-    []
+    [],
   );
 
   return { contextMenu, menu, setMenu };

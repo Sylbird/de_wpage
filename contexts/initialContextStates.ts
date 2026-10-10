@@ -6,13 +6,13 @@ import { MenuContextState } from './menu/useMenuContextState';
 export const initialFileSystemContextState: FileSystemContextState = {
   fs: null,
   mountFs: () => undefined,
-  unMountFs: () => undefined
+  unMountFs: () => undefined,
 };
 
 export const initialMenuContextState: MenuContextState = {
   contextMenu: () => () => undefined,
   menu: {},
-  setMenu: () => undefined
+  setMenu: () => undefined,
 };
 
 export const initialProcessContextState: ProcessContextState = {
@@ -22,7 +22,7 @@ export const initialProcessContextState: ProcessContextState = {
   maximize: () => undefined,
   minimize: () => undefined,
   processes: {},
-  title: () => undefined
+  title: () => undefined,
 };
 
 export const initialSessionContextState: SessionContextState = {
@@ -33,5 +33,5 @@ export const initialSessionContextState: SessionContextState = {
   themeName: 'defaultTheme',
   windowStates: {},
   setThemeName: () => undefined,
-  setWindowStates: () => undefined
+  setWindowStates: () => undefined,
 };

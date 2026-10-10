@@ -7,7 +7,7 @@ import useV86 from 'components/apps/V86/useV86';
 
 const V86 = ({ id }: ComponentProcessProps): React.JSX.Element => {
   const {
-    processes: { [id]: process }
+    processes: { [id]: process },
   } = useProcesses();
 
   const { url = '' } = process || {};

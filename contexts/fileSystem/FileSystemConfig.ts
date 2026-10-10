@@ -10,18 +10,18 @@ const FileSystemConfig: FileSystemConfiguration = {
         readable: {
           fs: 'HTTPRequest',
           options: {
-            index: bfsJson
-          }
+            index: bfsJson,
+          },
         },
         writable: {
           fs: 'IndexedDB',
           options: {
-            storeName: 'browser-fs-cache'
-          }
-        }
-      }
-    }
-  }
+            storeName: 'browser-fs-cache',
+          },
+        },
+      },
+    },
+  },
 };
 
 export default FileSystemConfig;

@@ -21,7 +21,7 @@ const Icon = styled.img.attrs<IconProps>(({ $imgSize, src }) => ({
   src:
     !src || src.startsWith('blob:')
       ? src || undefined
-      : `${dirname(src)}/${$imgSize}x${$imgSize}/${basename(src)}`
+      : `${dirname(src)}/${$imgSize}x${$imgSize}/${basename(src)}`,
 }))<IconProps>`
   visibility: hidden;
 `;

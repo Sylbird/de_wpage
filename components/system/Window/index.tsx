@@ -11,7 +11,7 @@ import useWindowTransitions from 'components/system/Window/useWindowTransitions'
 
 const Window: FC<ComponentProcessProps> = ({ children, id }) => {
   const {
-    processes: { [id]: process }
+    processes: { [id]: process },
   } = useProcesses();
   const { maximized } = process || {};
   const { foregroundId } = useSession();

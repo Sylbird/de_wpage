@@ -8,7 +8,7 @@ type Resizable = [Size, React.Dispatch<React.SetStateAction<Size>>];
 
 const useResizable = (
   autoSizing = false,
-  size = DEFAULT_WINDOW_SIZE
+  size = DEFAULT_WINDOW_SIZE,
 ): Resizable => {
   const [{ height, width }, setSize] = useState<Size>(size);
 

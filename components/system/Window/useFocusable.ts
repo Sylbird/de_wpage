@@ -11,26 +11,26 @@ type Focusable = {
 
 const useFocusable = (
   id: string,
-  windowRef: React.RefObject<HTMLElement | null>
+  windowRef: React.RefObject<HTMLElement | null>,
 ): Focusable => {
   const { foregroundId, setForegroundId, setStackOrder, stackOrder } =
     useSession();
   const zIndex = stackOrder.length - stackOrder.indexOf(id) + 1;
   const isForeground = id === foregroundId;
   const {
-    processes: { [id]: process }
+    processes: { [id]: process },
   } = useProcesses();
   const { taskbarEntry } = process || {};
   const onBlur = useCallback(
     ({ relatedTarget }: React.FocusEvent) => {
       if (isForeground && relatedTarget !== taskbarEntry) setForegroundId('');
     },
-    [isForeground, setForegroundId, taskbarEntry]
+    [isForeground, setForegroundId, taskbarEntry],
   );
   const moveToFront = useCallback(() => {
     setStackOrder((currentStackOrder) => [
       id,
-      ...currentStackOrder.filter((stackId) => stackId !== id)
+      ...currentStackOrder.filter((stackId) => stackId !== id),
     ]);
     setForegroundId(id);
     windowRef.current?.focus();
@@ -48,7 +48,7 @@ const useFocusable = (
     onBlur,
     onFocus: moveToFront,
     tabIndex: -1,
-    zIndex
+    zIndex,
   };
 };
 

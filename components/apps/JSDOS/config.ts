@@ -9,5 +9,5 @@ export const globals = [
   'emulatorsUi',
   'exports',
   'WDOSBOX',
-  'worker'
+  'worker',
 ];

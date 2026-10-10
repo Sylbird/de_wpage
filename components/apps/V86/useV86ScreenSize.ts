@@ -10,28 +10,28 @@ const SET_SCREEN_TXT = 'screen-set-size-text';
 
 const useV86ScreenSize = (
   id: string,
-  emulator: V86Starter | null
+  emulator: V86Starter | null,
 ): CSSProperties => {
   const {
     sizes: {
-      window: { lineHeight }
-    }
+      window: { lineHeight },
+    },
   } = useTheme();
 
   const { updateWindowSize } = useWindowSize(id);
 
   const setScreenGfx = useCallback<EventCallback>(
     ([width, height]) => updateWindowSize(height, width),
-    [updateWindowSize]
+    [updateWindowSize],
   );
 
   const setScreenText = useCallback<EventCallback>(
     ([cols, rows]) =>
       updateWindowSize(
         rows * pxToNumber(lineHeight),
-        (cols / 2 + 4) * pxToNumber(lineHeight)
+        (cols / 2 + 4) * pxToNumber(lineHeight),
       ),
-    [lineHeight, updateWindowSize]
+    [lineHeight, updateWindowSize],
   );
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const useV86ScreenSize = (
 
   return {
     font: `${lineHeight} monospace`,
-    lineHeight
+    lineHeight,
   };
 };
 

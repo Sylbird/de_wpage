@@ -27,7 +27,7 @@ export type ProcessContextState = {
   linkElement: (
     id: string,
     name: keyof ProcessElements,
-    element: HTMLElement
+    element: HTMLElement,
   ) => void;
   open: (id: string, url: string) => void;
   maximize: (id: string) => void;

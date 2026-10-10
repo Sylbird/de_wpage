@@ -4,7 +4,7 @@ export const config: VantaWavesConfig = {
   camera: {
     far: 400,
     fov: 30,
-    near: 0.1
+    near: 0.1,
   },
   color: 'hsl(240, 12.70%, 13.90%)',
   forceAnimate: true,
@@ -12,8 +12,8 @@ export const config: VantaWavesConfig = {
   material: {
     options: {
       fog: false,
-      wireframe: false
-    }
+      wireframe: false,
+    },
   },
   shininess: 45,
   waveHeight: 20,
@@ -23,5 +23,5 @@ export const config: VantaWavesConfig = {
   gyroControls: false,
   mouseControls: false,
   mouseEase: false,
-  touchControls: false
+  touchControls: false,
 };

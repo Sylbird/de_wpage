@@ -21,7 +21,7 @@ const useWindowsActions = (id: string): WindowActions => {
   const onMaximize = useCallback(() => maximize(id), [id, maximize]);
   const onClose = useCallback(() => {
     setStackOrder((currentStackOrder) =>
-      currentStackOrder.filter((stackid) => stackid !== id)
+      currentStackOrder.filter((stackid) => stackid !== id),
     );
     close(id, true);
     setTimeout(() => close(id), WINDOW_TRANSITION_DURATION_IN_MILLISECONDS);

@@ -14,11 +14,11 @@ const useTitle = (id: string): Title => {
   const { title: originalTitle } = processDirectory[pid] || {};
   const appendFileToTitle = useCallback(
     (url: string) => title(id, `${originalTitle} - ${basename(url)}`),
-    [id, originalTitle, title]
+    [id, originalTitle, title],
   );
 
   return {
-    appendFileToTitle
+    appendFileToTitle,
   };
 };
 

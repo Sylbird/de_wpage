@@ -29,11 +29,11 @@ const useFileSystemContextState = (): FileSystemContextState => {
           FileSystem.ZipFS.Create({ zipData: fileData }, createFs);
         }
       }),
-    [fs, rootFs]
+    [fs, rootFs],
   );
   const unMountFs = useCallback(
     (url: string): void => rootFs?.umount(url),
-    [rootFs]
+    [rootFs],
   );
 
   useEffect(() => {

@@ -7,11 +7,11 @@ import useMenuContextState from 'contexts/menu/useMenuContextState';
 const { Consumer, Provider, useContext } = contextFactory<MenuContextState>(
   initialMenuContextState,
   useMenuContextState,
-  Menu
+  Menu,
 );
 
 export {
   Consumer as MenuConsumer,
   Provider as MenuProvider,
-  useContext as useMenu
+  useContext as useMenu,
 };

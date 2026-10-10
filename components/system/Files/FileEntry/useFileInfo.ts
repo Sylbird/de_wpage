@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { IMAGE_FILE_EXTENSIONS } from 'utils/constants';
 import {
   getIconByFileExtension,
-  getProcessByFileExtension
+  getProcessByFileExtension,
 } from 'components/system/Files/FileEntry/functions';
 import { bufferToBlob } from 'utils/functions';
 
@@ -19,7 +19,7 @@ const useFileInfo = (path: string): FileInfo => {
   const [info, setInfo] = useState<FileInfo>({
     icon: '',
     pid: '',
-    url: ''
+    url: '',
   });
   const { fs } = useFileSystem();
 
@@ -34,14 +34,14 @@ const useFileInfo = (path: string): FileInfo => {
           setInfo({
             icon: 'System/Icons/emptyFolder.png',
             pid: 'FileExplorer',
-            url: path
+            url: path,
           });
         } else {
           const getInfoByFileExtension = (icon?: string) =>
             setInfo({
               icon: icon || getIconByFileExtension(extension),
               pid: getProcessByFileExtension(extension),
-              url: path
+              url: path,
             });
 
           if (extension === '.url') {
@@ -53,10 +53,10 @@ const useFileInfo = (path: string): FileInfo => {
                   InternetShortcut: {
                     BaseURL: pid = '',
                     IconFile: icon = '',
-                    URL: url = ''
+                    URL: url = '',
                   } = {
-                    IconFile: '/System/Icons/Unknown.png'
-                  }
+                    IconFile: '/System/Icons/Unknown.png',
+                  },
                 } = ini.parse(contents.toString());
 
                 setInfo({ icon, pid, url });

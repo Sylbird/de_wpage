@@ -12,7 +12,7 @@ const useLocaleDateTime = (now: Date): LocaleDateTime => {
   const { formats } = useTheme();
   const numericDate = new Intl.DateTimeFormat(
     locale,
-    formats.numericDate
+    formats.numericDate,
   ).format(now);
   const date = new Intl.DateTimeFormat(locale, formats.date).format(now);
   const time = new Intl.DateTimeFormat(locale, formats.time).format(now);
@@ -20,7 +20,7 @@ const useLocaleDateTime = (now: Date): LocaleDateTime => {
   return {
     numericDate,
     date,
-    time
+    time,
   };
 };
 

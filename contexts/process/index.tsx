@@ -5,11 +5,11 @@ import contextFactory from 'contexts/contextFactory';
 
 const { Consumer, Provider, useContext } = contextFactory<ProcessContextState>(
   initialProcessContextState,
-  useProcessContextState
+  useProcessContextState,
 );
 
 export {
   Consumer as ProcessConsumer,
   Provider as ProcessProvider,
-  useContext as useProcesses
+  useContext as useProcesses,
 };

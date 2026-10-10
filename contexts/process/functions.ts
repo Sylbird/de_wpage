@@ -10,7 +10,7 @@ const setProcessSettings =
     if (newProcesses[processId]) {
       newProcesses[processId] = {
         ...newProcesses[processId],
-        ...settings
+        ...settings,
       };
     }
 
@@ -41,8 +41,8 @@ export const openProcess =
           ...currentProcesses,
           [id]: {
             ...processDirectory[processId],
-            url
-          }
+            url,
+          },
         };
   };
 
@@ -50,14 +50,14 @@ export const maximizeProcess =
   (processId: string) =>
   (currentProcesses: Processes): Processes =>
     setProcessSettings(processId, {
-      maximized: !currentProcesses[processId].maximized
+      maximized: !currentProcesses[processId].maximized,
     })(currentProcesses);
 
 export const minimizeProcess =
   (processId: string) =>
   (currentProcesses: Processes): Processes =>
     setProcessSettings(processId, {
-      minimized: !currentProcesses[processId].minimized
+      minimized: !currentProcesses[processId].minimized,
     })(currentProcesses);
 
 export const setProcessElement =
