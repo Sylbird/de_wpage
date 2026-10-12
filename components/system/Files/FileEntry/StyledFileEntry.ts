@@ -9,6 +9,7 @@ const StyledFileEntry = styled.li`
   &:focus-within {
     background-color: ${({ theme }) =>
       theme.colors.fileEntry.backgroundFocused};
+    z-index: 1;
   }
 
   &:hover {
