@@ -15,12 +15,13 @@ const useFocusable = (
 ): Focusable => {
   const { foregroundId, setForegroundId, setStackOrder, stackOrder } =
     useSession();
-  const zIndex = stackOrder.length - stackOrder.indexOf(id) + 1;
-  const isForeground = id === foregroundId;
   const {
     processes: { [id]: process },
   } = useProcesses();
-  const { taskbarEntry } = process || {};
+  const { taskbarEntry, minimized = false } = process || {};
+  const zIndex =
+    stackOrder.length + (minimized ? 1 : -stackOrder.indexOf(id)) + 1;
+  const isForeground = id === foregroundId;
   const onBlur = useCallback(
     ({ relatedTarget }: React.FocusEvent) => {
       if (isForeground && relatedTarget !== taskbarEntry) setForegroundId('');
